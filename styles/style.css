@@ -1,9 +1,15 @@
 :root
 {
     --large-font-size: 3em;
+    --medium-font-size: 2.1em;
     --small-font-size: 1.3em;
     --font-family: Verdana, Geneva, Tahoma, sans-serif;
     --text-color: white;
+    --box-image-width: 460px;
+    --box-image-border-value: 1em;
+    --blur-value: 0.2em;
+    --brightness-value: 70%;
+    --grid-columns-gap: 4em;
 }
 
 body
@@ -11,11 +17,62 @@ body
     background-color: grey;
 }
 
+/*Region Classes*/
+
+.category-title
+{
+    position: relative;
+    text-align: center;
+    font-size: var(--large-font-size);
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+.category-list
+{    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--box-image-width) + var(--grid-columns-gap)), 1fr));
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
+
+.category
+{
+    position: relative;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.box-title
+{
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: var(--medium-font-size);
+    font-family: var(--font-family);
+}
+
+.box-image
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: blur(var(--blur-value)) brightness(var(--brightness-value));
+    -webkit-filter: blur(var(--blur-value)) brightness(var(--brightness-value));
+    border-radius: var(--box-image-border-value);    
+}
+
+/*Endregion Classes*/
+
 /*Region Ids*/
 
 /*Region Web Header*/
 
-#topbar
+#description-container
 {
     width: 100%;
     height: 20em;
@@ -80,5 +137,16 @@ body
 }
 
 /*Endregion Web Header*/
+
+/*Region Web Body*/
+
+#content
+{
+    position: absolute;
+    margin-top: 23em;
+    width: 100%;
+}
+
+/*Endregion Web Body*/
 
 /*Endregion Ids*/
