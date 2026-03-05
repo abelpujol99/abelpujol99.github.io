@@ -32,6 +32,7 @@ body
 {    
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(calc(var(--box-image-width) + var(--grid-columns-gap)), 1fr));
+    justify-items: center;
     margin-top: 2em;
     margin-bottom: 3em;
 }
