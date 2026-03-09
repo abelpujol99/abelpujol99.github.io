@@ -1,16 +1,40 @@
 :root
 {
-    --large-font-size: 3em;
-    --medium-font-size: 2.1em;
-    --small-font-size: 1.3em;
-    --tiny-font-size: 0.8em;
+
+    /*Region Fonts*/
+    --large-font-size: 3rem;
+    --medium-font-size: 1.7rem;
+    --small-font-size: 1rem;
+    --tiny-font-size: 0.3rem;
+
+    --main-title-relative-size: 1.2rem;
+    --main-title-relative-viewport-size: 2vw;
+
+    --section-title-relative-size: 0.6rem;
+    --section-title-relative-viewport-size: 1.5vw;
+
+    --subtitle-relative-size: 0.6rem;
+    --subtitle-relative-viewport-size: 1.5vw;
+
+    --contact-link-relative-size: 0.3rem;
+    --contact-link-relative-viewport-size: 0.7vw;
+
+    --main-title-font-size: clamp(var(--medium-font-size), calc(var(--main-title-relative-size) + var(--main-title-relative-viewport-size)), var(--large-font-size));
+    --title-font-size: clamp(var(--small-font-size), calc(var(--section-title-relative-size) + var(--section-title-relative-viewport-size)), var(--medium-font-size));
+    --subtitle-font-size: clamp(var(--tiny-font-size), calc(var(--subtitle-relative-size) + var(--subtitle-relative-viewport-size)), var(--small-font-size));
+    --contact-link-size: clamp(0.1rem, calc(var(--contact-link-relative-size) + var(--contact-link-relative-viewport-size)), var(--small-font-size));
+
     --font-family: Verdana, Geneva, Tahoma, sans-serif;
     --text-color: white;
-    --box-image-width: 460px;
+
+    /*Endregion Fonts*/
+
+    --portrait-height: clamp(30%, calc(1.5rem + 12vw) , 85%);
+
     --box-image-border-value: 1em;
     --blur-value: 0.2em;
     --brightness-value: 70%;
-    --grid-columns-gap: 4em;
+    --transition-time: 0s
 }
 
 body
@@ -25,16 +49,18 @@ body
 {
     position: relative;
     text-align: center;
-    font-size: var(--large-font-size);
+    font-size: var(--main-title-font-size);
     font-family: var(--font-family);
     color: var(--text-color);
+    transition: font-size var(--transition-time);
 }
 
 .category-list
 {    
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(calc(var(--box-image-width) + var(--grid-columns-gap)), 1fr));
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     margin-top: 2em;
     margin-bottom: 3em;
 }
@@ -42,21 +68,21 @@ body
 .category
 {
     position: relative;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin: 1em 2em;
 }
 
 .box-title
 {
     position: absolute;
     inset: 0;
-    z-index: 1;
     display: flex;
+    text-align: center;
     align-items: center;
     justify-content: center;
     color: var(--text-color);
-    font-size: var(--medium-font-size);
+    font-size: var(--title-font-size);
     font-family: var(--font-family);
+    transition: font-size var(--transition-time);
 }
 
 .box-image
@@ -64,9 +90,11 @@ body
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
     filter: blur(var(--blur-value)) brightness(var(--brightness-value));
     -webkit-filter: blur(var(--blur-value)) brightness(var(--brightness-value));
     border-radius: var(--box-image-border-value);
+    transition: width var(--transition-time);
 }
 
 /*Endregion Classes*/
@@ -85,21 +113,21 @@ body
     background-color: black;
     align-items: center;
     z-index: 10;
-    transition: all 0.6s;
+    transition: height var(--transition-time);
 }
 
 #portrait
 {
-    height: calc(100% - 4em);
+    height: var(--portrait-height);
     margin: 1em;
     object-fit: cover;
     align-self: center;
     justify-self: center;
-    transition: all 0.6s;
 }
 
 #personal-info
 {
+    max-width: 30%;
     color: var(--text-color);
     font-family: var(--font-family);
     justify-self: left;
@@ -108,22 +136,22 @@ body
 #name
 {
     color: var(--text-color);
-    font-size: var(--large-font-size);
+    font-size: var(--main-title-font-size);
     font-family: var(--font-family);
-    transition: font-size 0.6s;
+    transition: font-size var(--transition-time);
 }
 
 #ocupation
 {
     color: var(--text-color);
-    font-size: var(--small-font-size);
+    font-size: var(--subtitle-font-size);
     font-family: var(--font-family);
-    transition: font-size 0.6s;
+    transition: font-size var(--transition-time);
 }
 
 #contact-list
 {
-    left: 66%;
+    left: 67%;
     position: absolute;
     color: var(--text-color);
     font-family: var(--font-family);
@@ -135,51 +163,23 @@ body
     grid-template-columns: 5% 85%;
     align-items: center;
     white-space: nowrap;
-    line-height: 2em;
+    line-height: calc(0.5rem + 1.3vw);
 }
 
 #contact-icon
 {
     display: block;
     margin: auto;
-    width: 1.5em;
+    width: var(--contact-link-size);
 }
 
 #contact-link
 {
     text-align: left;
-    font-size: var(--small-font-size);
+    font-size: var(--contact-link-size);
     padding-left: 0.5em;
     color: var(--text-color);
-    transition: font-size 0.6s;
-}
-
-@media only screen and (max-width: 1200px)
-{
-    #topbar
-    {
-        height: 8em;
-    }
-
-    #personal-info
-    {
-        max-width: 30%;
-    }
-
-    #name
-    {
-        font-size: var(--small-font-size);
-    }
-    
-    #ocupation
-    {
-        font-size: var(--tiny-font-size);
-    }
-
-    #contact-link
-    {
-        font-size: var(--tiny-font-size);
-    }
+    transition: font-size var(--transition-time);
 }
 
 /*Endregion Web Header*/
@@ -191,8 +191,24 @@ body
     position: absolute;
     margin-top: 19em;
     width: 100%;
+    transition: margin-top var(--transition-time);
 }
 
 /*Endregion Web Body*/
 
 /*Endregion Ids*/
+
+
+@media only screen and (max-width: 1200px)
+{
+    #topbar
+    {
+        height: 10rem;
+        gap: 0%;
+    }
+
+    #content
+    {
+        margin-top: 13em;
+    }
+}
