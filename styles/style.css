@@ -3,6 +3,7 @@
     --large-font-size: 3em;
     --medium-font-size: 2.1em;
     --small-font-size: 1.3em;
+    --tiny-font-size: 0.8em;
     --font-family: Verdana, Geneva, Tahoma, sans-serif;
     --text-color: white;
     --box-image-width: 460px;
@@ -15,6 +16,7 @@
 body
 {
     background-color: grey;
+    line-height: 1.2;
 }
 
 /*Region Classes*/
@@ -64,7 +66,7 @@ body
     margin-right: auto;
     filter: blur(var(--blur-value)) brightness(var(--brightness-value));
     -webkit-filter: blur(var(--blur-value)) brightness(var(--brightness-value));
-    border-radius: var(--box-image-border-value);    
+    border-radius: var(--box-image-border-value);
 }
 
 /*Endregion Classes*/
@@ -75,43 +77,54 @@ body
 
 #topbar
 {
-    width: 100%;
-    height: 20em;
-    position: fixed;
     display: flex;
+    position: fixed;
+    gap: 5%;
+    width: 100%;
+    height: 14em;
     background-color: black;
+    align-items: center;
     z-index: 10;
+    transition: all 0.6s;
+}
+
+#portrait
+{
+    height: calc(100% - 4em);
+    margin: 1em;
+    object-fit: cover;
+    align-self: center;
+    justify-self: center;
+    transition: all 0.6s;
 }
 
 #personal-info
 {
-    width: 33%;
-    align-self: center;
     color: var(--text-color);
     font-family: var(--font-family);
+    justify-self: left;
 }
 
 #name
 {
-    font-size: var(--large-font-size);
-    margin-left: 1%;
-    margin-bottom: 2%;
     color: var(--text-color);
+    font-size: var(--large-font-size);
     font-family: var(--font-family);
+    transition: font-size 0.6s;
 }
 
 #ocupation
 {
-    font-size: var(--small-font-size);
-    margin-left: 1%;
     color: var(--text-color);
+    font-size: var(--small-font-size);
     font-family: var(--font-family);
+    transition: font-size 0.6s;
 }
 
 #contact-list
 {
     left: 66%;
-    align-self: center;
+    position: absolute;
     color: var(--text-color);
     font-family: var(--font-family);
 }
@@ -119,22 +132,54 @@ body
 #contact
 {
     display: flex;
+    grid-template-columns: 5% 85%;
     align-items: center;
+    white-space: nowrap;
+    line-height: 2em;
+}
+
+#contact-icon
+{
+    display: block;
+    margin: auto;
+    width: 1.5em;
 }
 
 #contact-link
 {
+    text-align: left;
     font-size: var(--small-font-size);
-    padding: 0.5em;
+    padding-left: 0.5em;
     color: var(--text-color);
+    transition: font-size 0.6s;
 }
 
-#portrait
+@media only screen and (max-width: 1200px)
 {
-    float: left;
-    margin: 1%;
-    margin-right: 2%;
-    border-style: double;
+    #topbar
+    {
+        height: 8em;
+    }
+
+    #personal-info
+    {
+        max-width: 30%;
+    }
+
+    #name
+    {
+        font-size: var(--small-font-size);
+    }
+    
+    #ocupation
+    {
+        font-size: var(--tiny-font-size);
+    }
+
+    #contact-link
+    {
+        font-size: var(--tiny-font-size);
+    }
 }
 
 /*Endregion Web Header*/
@@ -144,7 +189,7 @@ body
 #content
 {
     position: absolute;
-    margin-top: 23em;
+    margin-top: 19em;
     width: 100%;
 }
 
