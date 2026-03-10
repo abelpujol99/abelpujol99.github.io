@@ -31,8 +31,8 @@
 
     --portrait-height: clamp(30%, calc(1.5rem + 12vw) , 85%);
 
-    --box-image-border-value: 1em;
-    --blur-value: 0.2em;
+    --box-image-border-value: 1rem;
+    --blur-value: 0.2rem;
     --brightness-value: 70%;
     --transition-time: 0s
 }
@@ -40,16 +40,15 @@
 body
 {
     background-color: grey;
-    line-height: 1.2;
+    line-height: 1.5;
 }
 
 /*Region Classes*/
 
 .category-title
 {
-    position: relative;
     text-align: center;
-    font-size: var(--main-title-font-size);
+    font-size: var(--large-font-size);
     font-family: var(--font-family);
     color: var(--text-color);
     transition: font-size var(--transition-time);
@@ -80,17 +79,15 @@ body
     align-items: center;
     justify-content: center;
     color: var(--text-color);
-    font-size: var(--title-font-size);
+    font-size: var(--medium-font-size);
     font-family: var(--font-family);
     transition: font-size var(--transition-time);
 }
 
 .box-image
 {
-    display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
     filter: blur(var(--blur-value)) brightness(var(--brightness-value));
     -webkit-filter: blur(var(--blur-value)) brightness(var(--brightness-value));
     border-radius: var(--box-image-border-value);
@@ -107,12 +104,12 @@ body
 {
     display: flex;
     position: fixed;
-    gap: 5%;
-    width: 100%;
-    height: 14em;
-    background-color: black;
     align-items: center;
+    width: 100%;
+    gap: 5%;
+    height: 14em;
     z-index: 10;
+    background-color: black;
     transition: height var(--transition-time);
 }
 
@@ -127,7 +124,7 @@ body
 
 #personal-info
 {
-    max-width: 30%;
+    width: clamp(20%, calc(0.5rem + 35vw), 40%);
     color: var(--text-color);
     font-family: var(--font-family);
     justify-self: left;
@@ -136,7 +133,7 @@ body
 #name
 {
     color: var(--text-color);
-    font-size: var(--main-title-font-size);
+    font-size: var(--large-font-size);
     font-family: var(--font-family);
     transition: font-size var(--transition-time);
 }
@@ -144,15 +141,16 @@ body
 #ocupation
 {
     color: var(--text-color);
-    font-size: var(--subtitle-font-size);
+    font-size: var(--small-font-size);
     font-family: var(--font-family);
     transition: font-size var(--transition-time);
 }
 
 #contact-list
 {
-    left: 67%;
-    position: absolute;
+    margin-left: 1rem;
+    height: 100%;
+    align-content: center;
     color: var(--text-color);
     font-family: var(--font-family);
 }
@@ -160,23 +158,21 @@ body
 #contact
 {
     display: flex;
-    grid-template-columns: 5% 85%;
     align-items: center;
     white-space: nowrap;
-    line-height: calc(0.5rem + 1.3vw);
 }
 
 #contact-icon
 {
     display: block;
     margin: auto;
-    width: var(--contact-link-size);
+    width: var(--small-font-size);
 }
 
 #contact-link
 {
     text-align: left;
-    font-size: var(--contact-link-size);
+    font-size: var(--small-font-size);
     padding-left: 0.5em;
     color: var(--text-color);
     transition: font-size var(--transition-time);
@@ -188,9 +184,12 @@ body
 
 #content
 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     position: absolute;
-    margin-top: 19em;
     width: 100%;
+    margin-top: 19em;
     transition: margin-top var(--transition-time);
 }
 
@@ -203,7 +202,7 @@ body
 {
     #topbar
     {
-        height: 10rem;
+        height: 10em;
         gap: 0%;
     }
 
