@@ -7,23 +7,6 @@
     --small-font-size: 1rem;
     --tiny-font-size: 0.3rem;
 
-    --main-title-relative-size: 1.2rem;
-    --main-title-relative-viewport-size: 2vw;
-
-    --section-title-relative-size: 0.6rem;
-    --section-title-relative-viewport-size: 1.5vw;
-
-    --subtitle-relative-size: 0.6rem;
-    --subtitle-relative-viewport-size: 1.5vw;
-
-    --contact-link-relative-size: 0.3rem;
-    --contact-link-relative-viewport-size: 0.7vw;
-
-    --main-title-font-size: clamp(var(--medium-font-size), calc(var(--main-title-relative-size) + var(--main-title-relative-viewport-size)), var(--large-font-size));
-    --title-font-size: clamp(var(--small-font-size), calc(var(--section-title-relative-size) + var(--section-title-relative-viewport-size)), var(--medium-font-size));
-    --subtitle-font-size: clamp(var(--tiny-font-size), calc(var(--subtitle-relative-size) + var(--subtitle-relative-viewport-size)), var(--small-font-size));
-    --contact-link-size: clamp(0.1rem, calc(var(--contact-link-relative-size) + var(--contact-link-relative-viewport-size)), var(--small-font-size));
-
     --font-family: Verdana, Geneva, Tahoma, sans-serif;
     --text-color: white;
 
@@ -34,7 +17,7 @@
     --box-image-border-value: 1rem;
     --blur-value: 0.2rem;
     --brightness-value: 70%;
-    --transition-time: 0s
+    --transition-time: 0.3s
 }
 
 body
@@ -45,29 +28,79 @@ body
 
 /*Region Classes*/
 
-.category-title
+.main-title
 {
-    text-align: center;
     font-size: var(--large-font-size);
     font-family: var(--font-family);
     color: var(--text-color);
     transition: font-size var(--transition-time);
 }
 
-.category-list
-{    
+.title
+{
+    color: var(--text-color);
+    font-size: var(--medium-font-size);
+    font-family: var(--font-family);
+    transition: font-size var(--transition-time);
+}
+
+.sub-title
+{
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+    font-family: var(--font-family);
+    transition: font-size var(--transition-time);
+}
+
+.category-dropdown
+{
     display: flex;
+    position: relative;
+    width: 95vw;
+    min-height: 12rem;
+    margin-bottom: 1rem;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.category-dropdown-title-box
+{
+    width: 100%;
+    height: 12rem;
+    position: absolute;
+    align-self: flex-start;
+    align-content: center;
+    justify-items: center;
+    background-color: black;
+}
+
+.category-dropdown-content
+{
+    display: none;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    margin-top: 2em;
+    width: 100%;
+    margin-top: 14em;
     margin-bottom: 3em;
 }
 
-.category
+.close
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 3.5rem;
+    margin-right: 3.5rem;
+    cursor: pointer;
+}
+
+.subcategory
 {
     position: relative;
     margin: 1em 2em;
+    cursor: pointer;
 }
 
 .box-title
@@ -75,7 +108,6 @@ body
     position: absolute;
     inset: 0;
     display: flex;
-    text-align: center;
     align-items: center;
     justify-content: center;
     color: var(--text-color);
@@ -90,8 +122,12 @@ body
     margin-right: auto;
     filter: blur(var(--blur-value)) brightness(var(--brightness-value));
     -webkit-filter: blur(var(--blur-value)) brightness(var(--brightness-value));
-    border-radius: var(--box-image-border-value);
     transition: width var(--transition-time);
+}
+
+.round-border
+{
+    border-radius: var(--box-image-border-value);
 }
 
 /*Endregion Classes*/
@@ -130,29 +166,11 @@ body
     justify-self: left;
 }
 
-#name
-{
-    color: var(--text-color);
-    font-size: var(--large-font-size);
-    font-family: var(--font-family);
-    transition: font-size var(--transition-time);
-}
-
-#ocupation
-{
-    color: var(--text-color);
-    font-size: var(--small-font-size);
-    font-family: var(--font-family);
-    transition: font-size var(--transition-time);
-}
-
 #contact-list
 {
     margin-left: 1rem;
     height: 100%;
     align-content: center;
-    color: var(--text-color);
-    font-family: var(--font-family);
 }
 
 #contact
@@ -172,10 +190,7 @@ body
 #contact-link
 {
     text-align: left;
-    font-size: var(--small-font-size);
     padding-left: 0.5em;
-    color: var(--text-color);
-    transition: font-size var(--transition-time);
 }
 
 /*Endregion Web Header*/
@@ -189,7 +204,7 @@ body
     flex-wrap: wrap;
     position: absolute;
     width: 100%;
-    margin-top: 19em;
+    margin-top: 15em;
     transition: margin-top var(--transition-time);
 }
 
