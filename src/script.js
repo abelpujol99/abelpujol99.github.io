@@ -13,6 +13,11 @@ function DisplayNone(element)
     element.style.display = "none";
 }
 
+function AllWidth(element)
+{
+    element.style.width = "100%";
+}
+
 function OpenCategory()
 {
     DisplayFlex(categoryExpanded.querySelector('.category-dropdown-content'));
@@ -21,6 +26,7 @@ function OpenCategory()
 
 function OpenSubcategory()
 {
+    subcategoryExpanded.style.width = "100%";
     DisplayNone(subcategoryExpanded.querySelector('.subcategory-dropdown-banner'));
     DisplayFlex(subcategoryExpanded.querySelector('.subcategory-dropdown-content'));
     RemoveCursorPointer(subcategoryExpanded);
@@ -48,6 +54,7 @@ function CloseSubcategory()
     }
 
     AddCursorPointer(subcategoryExpanded);
+    subcategoryExpanded.style.width = "";
     DisplayFlex(subcategoryExpanded.querySelector('.subcategory-dropdown-banner'));
     DisplayNone(subcategoryExpanded.querySelector('.subcategory-dropdown-content'))
     subcategoryExpanded = null;
