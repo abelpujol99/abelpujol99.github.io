@@ -163,9 +163,42 @@ body
     width: calc(100% - 4rem);
 }
 
+.subcategory-content-grid
+{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 2rem auto;
+}
+
+.subcategory-content-block
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+    align-items: flex-start;
+}
+
+.subcategory-text
+{
+    margin: 2rem;
+    align-self: center;
+}
+
+.subcategory-media
+{
+    width: 35vw;
+    height: calc(35vw * 0.56);
+    margin: auto;
+}
+
 /*#endregion Subcategories*/
 
 /*#region Utilities*/
+
+.reference-video
+{
+    margin: 1rem auto;
+}
 
 .solid-border
 {
