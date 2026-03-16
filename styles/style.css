@@ -1,6 +1,5 @@
 :root
 {
-
     /*#region Fonts*/
     --large-font-size: 3rem;
     --medium-font-size: 2rem;
@@ -15,7 +14,7 @@
     --portrait-height: clamp(30%, calc(1.5rem + 12vw) , 85%);
 
     --box-image-border-value: 1rem;
-    --blur-value: 0.2rem;
+    --blur-value: 0.1rem;
     --brightness-value: 70%;
     --transition-time: 0.3s
 }
@@ -61,6 +60,7 @@ body
 .category-dropdown
 {
     display: flex;
+    flex-direction: column;
     position: relative;
     width: 95vw;
     min-height: 12rem;
@@ -75,8 +75,6 @@ body
 {
     width: 100%;
     height: 12rem;
-    position: absolute;
-    align-self: flex-start;
     align-content: center;
     justify-items: center;
     background-color: black;
@@ -88,18 +86,7 @@ body
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    margin-top: 14em;
-    margin-bottom: 3em;
-}
-
-.close-category
-{
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 3.5rem;
-    margin-right: 3.5rem;
-    cursor: pointer;
+    margin: 1rem 0;
 }
 
 /*#endregion Categories*/
@@ -113,23 +100,43 @@ body
     cursor: pointer;
 }
 
-.subcategory-dropdown-banner
+.subcategory-frame
+{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*#endregion Subcategories*/
+
+/*#region Cards*/
+
+.card-dropdown
+{
+    position: relative;
+    margin: 1em 2em;
+    cursor: pointer;
+}
+
+.card-dropdown-banner
 {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: 100%;
     width: 460px;
     height: 215px;
     transition: width var(--transition-time);
 }
 
-.subcategory-dropdown-title
+.card-dropdown-title
 {
     position: absolute;
     z-index: 1;
 }
 
-.subcategory-dropdown-content
+.card-dropdown-content
 {
     display: none;
     flex-direction: column;
@@ -137,7 +144,7 @@ body
     width: 100%;
 }
 
-.subcategory-title
+.card-title
 {
     position: relative;
     width: 100%;
@@ -147,30 +154,20 @@ body
     justify-content: center;
 }
 
-.close-subcategory
-{
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 1rem;
-    margin-right: 1rem;
-    cursor: pointer;
-}
-
-.subcategory-content
+.card-content
 {
     margin: 2rem;
     width: calc(100% - 4rem);
 }
 
-.subcategory-content-grid
+.card-content-grid
 {
     display: grid;
     grid-template-columns: 50% 50%;
     margin: 2rem auto;
 }
 
-.subcategory-content-block
+.card-content-block
 {
     display: flex;
     flex-wrap: wrap;
@@ -178,22 +175,31 @@ body
     align-items: flex-start;
 }
 
-.subcategory-text
+.card-text
 {
     margin: 2rem;
     align-self: center;
 }
 
-.subcategory-media
+.card-media
 {
     width: 35vw;
     height: calc(35vw * 0.56);
     margin: auto;
 }
 
-/*#endregion Subcategories*/
+/*#endregion Card*/
 
 /*#region Utilities*/
+
+.cross
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    content: url("../resources/images/cross.png");
+}
 
 .reference-video
 {
@@ -301,15 +307,66 @@ body
 
 /*#region Main Topics*/
 
+#publications
+{
+    
+}
 
+#topics
+{
+
+}
+
+#code-good-practices
+{
+
+}
 
 /*#endregion Main Topics*/
 
 /*#region Farlands: Tiny Harvest*/
 
+#farlands-tiny-harvest-banner
+{
+    background-image: url("../resources/images/farlands-tiny-harvest-banner.jpg");
+}
+
 /*#endregion Farlands: Tiny Harvest*/
 
+/*#region Multithreading*/
+
+#multithreading-banner
+{
+    background-image: url("../resources/images/multithreading-banner.jpg");
+}
+
+/*#endregion Multithreading*/
+
+/*#region Network*/
+
+/*#endregion Network*/
+
+/*#region AI*/
+
+/*#endregion AI*/
+
 /*#endregion Web Body*/
+
+/*#region Utilities*/
+
+#category-cross
+{
+    margin-top: 3.5rem;
+    margin-right: 3.5rem;
+}
+
+#subcategory-cross, #card-cross
+{
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+/*#endregion Utilities*/
 
 /*#endregion Ids*/
 
