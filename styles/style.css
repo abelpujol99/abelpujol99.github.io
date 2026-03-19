@@ -2,20 +2,18 @@
 {
     /*#region Fonts*/
     --large-font-size: 3rem;
-    --medium-font-size: 2rem;
+    --medium-font-size: 2.5rem;
     --small-font-size: 1.3rem;
     --tiny-font-size: 0.3rem;
 
     --font-family: Verdana, Geneva, Tahoma, sans-serif;
-    --title-color: white;
-    --text-color: black;
     /*#endregion Fonts*/
 
     --portrait-height: clamp(30%, calc(1.5rem + 12vw) , 85%);
 
     --box-image-border-value: 1rem;
     --blur-value: 0.1rem;
-    --brightness-value: 70%;
+    --brightness-value: 30%;
     --transition-time: 0.3s
 }
 
@@ -25,23 +23,46 @@ body
     line-height: 1.5;
 }
 
+ul
+{
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+li 
+{
+    padding-left: 1.9rem;
+    text-indent: -1.38em;
+}
+
+figure
+{
+
+    margin: 1rem auto;
+}
+
+figcaption
+{
+    font-style: italic;
+    text-align: center;
+    background-color: black;
+}
+
 /*#region Classes*/
 
-/*#region Titles*/
+/*#region Font*/
 
 .main-title
 {
     font-size: var(--large-font-size);
     font-family: var(--font-family);
-    color: var(--title-color);
     transition: font-size var(--transition-time);
 }
 
 .title
 {
-    font-size: var(--small-font-size);
+    font-size: var(--medium-font-size);
     font-family: var(--font-family);
-    color: var(--title-color);
     transition: font-size var(--transition-time);
 }
 
@@ -49,11 +70,15 @@ body
 {
     font-size: var(--small-font-size);
     font-family: var(--font-family);
-    color: var(--text-color);
     transition: font-size var(--transition-time);
 }
 
-/*#endregion Titles*/
+.white
+{
+    color: white;
+}
+
+/*#endregion Font*/
 
 /*#region Categories*/
 
@@ -125,6 +150,7 @@ body
     align-items: center;
     justify-content: center;
     background-size: 100%;
+    background-position: center;
     width: 460px;
     height: 215px;
     transition: width var(--transition-time);
@@ -171,7 +197,7 @@ body
 {
     display: flex;
     flex-wrap: wrap;
-    margin: 2rem;
+    margin: 2rem 0;
     align-items: flex-start;
 }
 
@@ -181,10 +207,15 @@ body
     align-self: center;
 }
 
-.card-media
+.horizontal-card-media
 {
     width: 35vw;
-    height: calc(35vw * 0.56);
+    margin: auto;
+}
+
+.vertical-card-media
+{
+    width: 25vw;
     margin: auto;
 }
 
@@ -203,14 +234,34 @@ body
 
 .reference-video
 {
+    width: 35vw;
+    height: calc(35vw * 0.56);
     margin: 1rem auto;
 }
+
+/*#region Border*/
 
 .solid-border
 {
     border-style: solid;
+}
+
+.thick-border
+{
     border-width: 5px;
 }
+
+.thin-border
+{
+    border-width: 2px;
+}
+
+.border-padding
+{
+    padding: 4px;
+}
+
+/*#endregion Border*/
 
 .round-border
 {
@@ -328,7 +379,7 @@ body
 
 #farlands-tiny-harvest-banner
 {
-    background-image: url("../resources/images/farlands-tiny-harvest-banner.jpg");
+    background-image: url("../resources/images/farlands-tiny-harvest/banner.jpg");
 }
 
 /*#endregion Farlands: Tiny Harvest*/
@@ -349,6 +400,11 @@ body
 /*#region AI*/
 
 /*#endregion AI*/
+
+#pounce-palace-banner
+{
+    background-image: url("../resources/images/pounce-palace/banner.png");
+}
 
 /*#endregion Web Body*/
 
