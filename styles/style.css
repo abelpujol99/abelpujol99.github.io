@@ -395,6 +395,11 @@ figcaption
 
 /*#region Network*/
 
+#network-banner
+{
+    background-image: url("../resources/images/network-banner.jpg");
+}
+
 /*#endregion Network*/
 
 /*#region AI*/
