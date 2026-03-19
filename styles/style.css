@@ -411,6 +411,11 @@ figcaption
     background-image: url("../resources/images/pounce-palace/banner.png");
 }
 
+#chess-banner
+{
+    background-image: url("../resources/images/chess/banner.jpg");
+}
+
 /*#endregion Web Body*/
 
 /*#region Utilities*/
