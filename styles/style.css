@@ -410,6 +410,11 @@ figcaption
 
 /*#region AI*/
 
+#AI-banner
+{
+    background-image: url("../resources/images/AI-banner.jpg");
+}
+
 /*#endregion AI*/
 
 #pounce-palace-banner
