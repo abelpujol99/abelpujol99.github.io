@@ -53,7 +53,7 @@
                                         <br>
                                         In order to progress, this game counts your keyboard and mouse inputs to keep "playing".
                                     </p>
-                                    <video class="horizontal-card-media" autoplay muted loop>
+                                    <video class="horizontal-medium-card-media" autoplay muted loop>
                                         <source src="resources/videos/farlands-tiny-harvest/trailer.mp4">
                                     </video>
                                 </div>
@@ -65,7 +65,7 @@
                                         <br>
                                         The great struggle came with Raylib. Until that time, it was an unfamiliar library, due to this, it took some time until I understood how the features I needed worked and implemented the necessary code structure and Adapters, which allowed me to display assets without the need to interact directly with the library's code.
                                     </p>
-                                    <img class="horizontal-card-media" src="resources/images/farlands-tiny-harvest/image-1.jpg" alt="">
+                                    <img class="horizontal-medium-card-media" src="resources/images/farlands-tiny-harvest/image-1.jpg" alt="">
                                 </div>
                                 <div class="card-content-grid">
                                     <p class="text card-text">
@@ -76,7 +76,7 @@
                                         <br>
                                         Plus, we were so well on time that we were able to implement skins.
                                     </p>
-                                    <img class="horizontal-card-media" src="resources/images/farlands-tiny-harvest/image-2.jpg" alt="">
+                                    <img class="horizontal-medium-card-media" src="resources/images/farlands-tiny-harvest/image-2.jpg" alt="">
                                 </div>
                                 <div>
                                     <p class="title card-title white">References</p>
@@ -123,7 +123,7 @@
                                                     <br>
                                                     This game was developed in Unity.
                                                 </p>
-                                                <video class="horizontal-card-media" autoplay muted loop>
+                                                <video class="horizontal-medium-card-media" autoplay muted loop>
                                                     <source src="resources/videos/pounce-palace/trailer.mp4">
                                                 </video>
                                             </div>
@@ -132,7 +132,7 @@
                                                     The foes are controlled by an AI, and this has to decide which is the most optimal action. Some enemies are static, but some others can move along the level. 
                                                     The Pathfinding computations can't reside in the main thread while trying to keep the game at 60 FPS, so I needed to implement multithreading to handle pathfinding algorithm calculations.
                                                 </p>
-                                                <img class="horizontal-card-media" src="resources/images/pounce-palace/enemies-amount.png" alt="">
+                                                <img class="horizontal-medium-card-media" src="resources/images/pounce-palace/enemies-amount.png" alt="">
                                             </div>
                                             <div>
                                                 <p class="title card-title white">Implementation</p>
@@ -144,7 +144,7 @@
                                                     <br>
                                                     To modify them easily those fields were exposed in the editor.
                                                 </p>
-                                                <img class="horizontal-card-media" src="resources/images/pounce-palace/editor.png" alt="">
+                                                <img class="horizontal-medium-card-media" src="resources/images/pounce-palace/editor.png" alt="">
                                             </div>
                                             <div class="card-content-grid">
                                                 <p class="text card-text">
@@ -154,8 +154,8 @@
                                                     To accomplish this requirement the threads work with a list filled with enemies' id, and those are distibuted when the enemies have been spawned and removed when they are defeated.
                                                 </p>
                                                 <div style="display: flex; flex-direction: column; ">
-                                                    <img class="vertical-card-media" src="resources/images/pounce-palace/add-agent-id.png" alt="">
-                                                    <img class="vertical-card-media" src="resources/images/pounce-palace/remove-agent-id.png" alt="">
+                                                    <img class="vertical-medium-card-media" src="resources/images/pounce-palace/add-agent-id.png" alt="">
+                                                    <img class="vertical-medium-card-media" src="resources/images/pounce-palace/remove-agent-id.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="card-content-grid">
@@ -168,7 +168,7 @@
                                                     When this happens the selected id is positioned at the end of the list to cycle dynamically the priority, and finally, the timer starts again.
                                                     This method lets the enemies' needs balance the computation times, allowing the thread to work almost constantly.
                                                 </p>
-                                                <img class="vertical-card-media" src="resources/images/pounce-palace/check-loop.png" alt="">
+                                                <img class="vertical-medium-card-media" src="resources/images/pounce-palace/check-loop.png" alt="">
                                             </div>
                                             <div class="card-content-grid">
                                                 <p class="text card-text">
@@ -176,7 +176,7 @@
                                                     To solve this problem, I defined a class with the purpose of storing the data necessary to update the NavMesh obstacles.
                                                     And when the computation needs to be done, the thread asks the main thread for the necessary information via events and allocates them in instances of that class.
                                                 </p>
-                                                <img class="horizontal-card-media" src="resources/images/pounce-palace/event.png" alt="">
+                                                <img class="horizontal-medium-card-media" src="resources/images/pounce-palace/event.png" alt="">
                                             </div>
                                             <div>
                                                 <p class="text card-text">
@@ -189,7 +189,7 @@
                                             </div>
                                             <div class="card-content-block">
                                                 <figure class="solid-border thin-border border-padding">
-                                                    <img class="horizontal-card-media" src="resources/images/pounce-palace/profiler.png" alt="">
+                                                    <img class="horizontal-medium-card-media" src="resources/images/pounce-palace/profiler.png" alt="">
                                                     <figcaption class="text white">Pounce Palace Performance</figcaption>
                                                 </figure>
                                             </div>
@@ -211,17 +211,85 @@
                             <div class="category-dropdown-content">
                                 <img class="cross" id="subcategory-cross" alt="cross">
                                 <div class="card-dropdown">
-                                    <div class="card-dropdown-banner round-border" id="chess-banner">
+                                    <div class="card-dropdown-banner round-border" id="online-chess-banner">
                                         <div class="blur round-border"></div>
                                         <p class="title card-dropdown-title white">Chess</p>
                                     </div>
                                     <div class="card-dropdown-content solid-border thick-border">
-                                        <div class="main-title card-title white">
-                                            Chess
-                                            <img class="cross"id="card-cross" alt="cross">
+                                        <div>
+                                            <p class="main-title card-title white">Chess</p>
                                         </div>
                                         <div class="card-content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                            <img class="cross" id="card-cross" alt="cross">
+                                            <div class="card-content-grid">
+                                                <p class="text card-text">
+                                                    This game is an online chess game, and can look simple, but has a peculiarity, depending in the screen the player is, the connection could be server-client or P2P.
+                                                    <br>
+                                                    <br>
+                                                    This game was developed with the framework SFML, making use of their TCP sockets, and I was responsible for developing the network part.
+                                                </p>
+                                                <img class="horizontal-medium-card-media" src="resources/images/online-chess/image1.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="title card-title white">Implementation</p>
+                                            </div>
+                                            <div>
+                                                <p class="text card-text">
+                                                    We wanted to give the users the capability to choose between being a server or a client.
+                                                    <br>
+                                                    <br>
+                                                    To make this possible, when the application starts, it asks the user what they want to be. 
+                                                    If they choose server mode, they will open a port to make possible the connection. And if they choose client mode, they must type the IP in order to connect with the server.
+                                                </p>
+                                            </div>
+                                            <div class="card-content-block">
+                                                <video class="horizontal-large-card-media" autoplay muted loop>
+                                                    <source src="resources/videos/online-chess/server-connection.mp4">
+                                                </video>
+                                            </div>
+                                            <div>
+                                                <p class="text card-text">
+                                                    The server handles the next client requests:
+                                                </p>
+                                                <ul class="text card-text">
+                                                    <li>Connect To Server</li>
+                                                    <li>Login</li>
+                                                    <li>Create Room</li>
+                                                    <li>Join Room as Player</li>
+                                                    <li>Join Room as Spectator</li>
+                                                    <li>Send Message</li>
+                                                    <li>Ready to Play</li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-content-block">
+                                                <video class="horizontal-large-card-media" autoplay muted loop>
+                                                    <source src="resources/videos/online-chess/packets.mp4">
+                                                </video>
+                                            </div>
+                                            <div>
+                                                <p class="text card-text">
+                                                    Once the match has begun, all the clients' sockets inside the room are closed, and connection P2P starts.
+                                                    In this state the "ruler" is the client who has been inside the room the longest.
+                                                    <br>
+                                                    <br>
+                                                    During the match the ruler handles the next requests:
+                                                </p>
+                                                <ul class="text card-text">
+                                                    <li>Exit Room</li>
+                                                    <li>Send Message</li>
+                                                    <li>Select Piece</li>
+                                                    <li>Deselect Piece</li>
+                                                    <li>Move Piece</li>
+                                                    <li>Pawn Promotion</li>
+                                                    <li>Castle</li>
+                                                    <li>En Passsant</li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-content-block">
+                                                <video class="horizontal-large-card-media" autoplay muted loop>
+                                                    <source src="resources/videos/online-chess/match.mp4">
+                                                </video>
+                                            </div>                                            
                                         </div>
                                     </div>
                                 </div>

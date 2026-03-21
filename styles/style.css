@@ -207,13 +207,19 @@ figcaption
     align-self: center;
 }
 
-.horizontal-card-media
+.horizontal-medium-card-media
 {
     width: 35vw;
     margin: auto;
 }
 
-.vertical-card-media
+.horizontal-large-card-media
+{
+    width: 80%;
+    margin: auto;
+}
+
+.vertical-medium-card-media
 {
     width: 25vw;
     margin: auto;
@@ -411,9 +417,9 @@ figcaption
     background-image: url("../resources/images/pounce-palace/banner.png");
 }
 
-#chess-banner
+#online-chess-banner
 {
-    background-image: url("../resources/images/chess/banner.jpg");
+    background-image: url("../resources/images/online-chess/banner.jpg");
 }
 
 /*#endregion Web Body*/
