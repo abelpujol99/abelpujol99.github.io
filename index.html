@@ -132,7 +132,7 @@
                                                     The foes are controlled by an AI, and this has to decide which is the most optimal action. Some enemies are static, but some others can move along the level. 
                                                     The Pathfinding computations can't reside in the main thread while trying to keep the game at 60 FPS, so I needed to implement multithreading to handle pathfinding algorithm calculations.
                                                 </p>
-                                                <img class="horizontal-medium-card-media" src="resources/images/pounce-palace/enemies-amount.png" alt="">
+                                                <img class="horizontal-medium-card-media" src="resources/images/pounce-palace/enemies-thicket.png" alt="">
                                             </div>
                                             <div>
                                                 <p class="title card-title white">Implementation</p>
@@ -318,9 +318,7 @@
                                             Pounce Palace
                                             <img class="cross"id="card-cross" alt="cross">
                                         </div>
-                                        <div class="card-content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -338,17 +336,84 @@
                             <div class="category-dropdown-content">
                                 <img class="cross" id="subcategory-cross" alt="cross">
                                 <div class="card-dropdown">
-                                    <div class="card-dropdown-banner round-border" style="background-image: url(resources/images/farlands-tiny-harvest/banner.jpg);">
+                                    <div class="card-dropdown-banner round-border" id="pounce-palace-banner">
                                         <div class="blur round-border"></div>
                                         <p class="title card-dropdown-title white">Pounce Palace</p>
                                     </div>
                                     <div class="card-dropdown-content solid-border thick-border">
                                         <div class="main-title card-title white">
-                                            Pounce Palace
-                                            <img class="cross"id="card-cross" alt="cross">
+                                            <p class="main-title card-title">Pounce Palace</p>
                                         </div>
                                         <div class="card-content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                            <img class="cross" id="card-cross" alt="cross">
+                                            <div class="card-content-grid">
+                                                <p class="text card-text">
+                                                    Pounce Palace is a singleplayer first-person platformer game where the player has to acquire movement skills and learn how to use them in order to defeat the enemies in their path to complete the level.
+                                                    <br>
+                                                    This game was developed in Unity.
+                                                </p>
+                                                <video class="horizontal-medium-card-media" autoplay muted loop>
+                                                    <source src="resources/videos/pounce-palace/trailer.mp4">
+                                                </video>
+                                            </div>
+                                            <div class="card-content-grid">
+                                                <p class="text card-text">
+                                                    The enemies in Pounce Palace must be controlled by an AI that decides the best output based on the situation. 
+                                                    In addition, there are 2 types of enemies, static and mobile. So a system must be developed that gives mobile enemies the most optimal path.
+                                                </p>
+                                                <img class="horizontal-medium-card-media" src="resources/images/pounce-palace/enemies-thicket.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="title card-title white">Implementation</p>
+                                            </div>
+                                            <div class="card-content-grid">
+                                                <p class="text card-text">
+                                                    The decisions made by the AI would be a great weight for the performance and should be easily modified. With that knowledge, the chosen Decision Making algorithm had to be optimal and very easy to tweak when the iterations come.
+                                                    Due to these requirements, the algorithm chosen was UBS (Utility Based System), this algorithm has regular computational cost and has no difficulty being expanded.
+                                                    <br>
+                                                    <br>
+                                                    The output would be translated to an action that the enemy performs. Some of these actions were desired to be repeated indefinitely if needed, but others don't; to handle this, each enemy had a list of actions that could be repeated.
+                                                </p>
+                                                <img class="vertical-medium-card-media" src="resources/images/pounce-palace/ubs.png" alt="">
+                                            </div>
+                                            <div class="card-content-grid">
+                                                <div>
+                                                    <p class="text card-text">
+                                                        A requirement for the mobile AI was not to collide against other AIs, whether mobile or not. 
+                                                        To make this possible, the AIs need to have a "personal area" that no AI should enter, but Unity's built-in NavMesh doesn't allow that behavior.
+                                                        <br>
+                                                        <br>
+                                                        I solved this issue by implementing our own NavMesh, with Unity's NavMesh help. 
+                                                        To create our NavMesh, we get Unity's NavMesh volume, then from the top of the plane to its bottom we launch Raycasts, they are distributed with a predefined separation from the editor.
+                                                        These Raycasts retrieves the hits with the NavMesh surfaces, with an epsilon to cover more surface.
+                                                        With that information the nodes were disposed where the hits take place. Once all nodes were placed, they were connected to other nodes if:
+                                                    </p>
+                                                    <ul class="text card-text">
+                                                        <li>The other node was inside a distance threshold</li>
+                                                        <li>The connecition didn't create an edge that went outside of the Unity's NavMesh surface</li>
+                                                    </ul>
+                                                    <p class="text card-text">
+                                                        <br>
+                                                        <br>
+                                                        These computations are too slow to be done once the game starts. But this data would be persistent throughout the game,
+                                                        so, we create this NavMesh from the editor and save it as a binary file, and when the game begins, all the mobile enemies obtain a DeepCopy of that NavMesh.
+                                                        <br>
+                                                        <br>
+                                                        With this solution, we could define "personal areas" for all the AIs by incrementing their nearer edges' weight. Thus, they avoid colliding with each other.
+                                                    </p>
+                                                </div>
+                                                <img class="vertical-medium-card-media" src="resources/images/pounce-palace/nav-mesh.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="text card-text">
+                                                    Taking control of the AI movement was great, but led to another issue: the movement was visibly calculated by an AI.
+                                                    To avoid this perception from the player, I decided to take control of the Parthfinding algorithm. We needed one that was optimal and fast. A* achieves these requirements due to their use of heuristics.
+                                                    <br>
+                                                    <br>
+                                                    When A* returned a path, this was optimized out by first removing any node that was not a corner point, and followed by removing any node that might be an unnecessary step between 2 nodes.
+                                                    Finally, the optimized path was disposed to the AI.
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
