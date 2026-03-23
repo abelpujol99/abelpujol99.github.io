@@ -1,6 +1,9 @@
+import * as DomUtilities from "./utilities/DOMUtilities.js";
 import { Category } from "./classes/Category.js";
 import { Subcategory } from "./classes/Subcategory.js";
 import { Card } from "./classes/Card.js";
+
+let imageZoomDiv;
 
 const categoryExpanded = new Category();
 const subcategoryExpanded = new Subcategory();
@@ -62,10 +65,38 @@ function AttachClickHandler()
         dropdownsClickedInOrder.pop();
         event.stopPropagation();
     }));
+
+    document.querySelectorAll('.clonable').forEach(clonable => clonable.addEventListener('click', (event) => {
+
+        DomUtilities.DisplayFlex(imageZoomDiv);
+
+        const clone = clonable.cloneNode(true);
+
+        clone.removeAttribute("id");
+
+        clone.classList.remove('clonable');
+
+        clone.setAttribute('id', 'zoomed-media');
+
+        imageZoomDiv.appendChild(clone);
+
+        event.stopPropagation();
+    }));
+
+    imageZoomDiv.querySelector('#image-zoom-cross').addEventListener('click', (event) => {
+
+        DomUtilities.DisplayNone(imageZoomDiv);
+
+        document.getElementById('zoomed-media').remove();
+
+        event.stopPropagation();
+    });
 }
 
 function OnDocumentLoaded()
 {
+    imageZoomDiv = document.getElementById('image-zoom');
+
     AttachClickHandler();
 }
 
