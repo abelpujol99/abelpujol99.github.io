@@ -420,6 +420,122 @@
                             </div>
                         </div>
                     </div>
+                    <div class="subcategory-dropdown">
+                        <div class="card-dropdown-banner round-border" id="tooling-banner">
+                            <div class="blur round-border"></div>
+                            <p class="title card-dropdown-title white">Tooling</p>
+                        </div>
+                        <div class="subcategory-frame solid-border thick-border">
+                            <div>
+                                <p class="main-title card-title white">Tooling</p>
+                            </div>
+                            <div class="category-dropdown-content">
+                                <img class="cross" id="subcategory-cross" alt="cross">
+                                <div class="card-dropdown">
+                                    <div class="card-dropdown-banner round-border" id="pounce-palace-banner">
+                                        <div class="blur round-border"></div>
+                                        <p class="title card-dropdown-title white">Pounce Palace</p>
+                                    </div>
+                                    <div class="card-dropdown-content solid-border thick-border">
+                                        <div class="main-title card-title white">
+                                            <p class="main-title card-title">Pounce Palace</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <img class="cross" id="card-cross" alt="cross">
+                                            <div class="card-content-grid">
+                                                <p class="text card-text">
+                                                    Pounce Palace is a first-person platformer game where the player has to acquire movement skills and learn how to use them in order to defeat the enemies in their path to complete the level.
+                                                    <br>
+                                                    This game was developed in Unity.
+                                                </p>
+                                                <video class="horizontal-medium-card-media" autoplay muted loop>
+                                                    <source src="resources/videos/pounce-palace/trailer.mp4">
+                                                </video>
+                                            </div>
+                                            <div>
+                                                <p class="text card-text">
+                                                    Due to time constraints, Pounce Palace could only have 2 types of enemies implemented.
+                                                    But, throughout the game, the players can see variations of the same enemies.
+                                                    This was achieved by developing a tool, allowing the enemy designers to iterate without having to communicate with the AI developer, which in that case was me.
+                                                </p>
+                                            </div>
+                                            <div class="card-content-block">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="vertical-medium-card-media" src="resources/images/pounce-palace/triface.png" style="width: 14vw;" alt="">
+                                                    <figcaption class="text white">Triface</figcaption>
+                                                </figure>
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="horizontal-medium-card-media" src="resources/images/pounce-palace/longarms.png" alt="">
+                                                    <figcaption class="text white">Long Arms</figcaption>
+                                                </figure>
+                                            </div>
+                                            <div>
+                                                <p class="title card-title white">Implementation</p>
+                                            </div>
+                                            <div class="card-content-grid">
+                                                <div>
+                                                    <p class="text card-text">
+                                                        In order to allow fast iterations, some data assets for enemy type and ability type were defined.
+                                                        To maximize enemy designers' performance while iterating, each data asset has their own Custom Editor.
+                                                        These editors were implemented to add:
+                                                    </p>
+                                                    <ul class="text card-text">
+                                                        <li>Text Hightlights</li>
+                                                        <li>Indents</li>
+                                                        <li>Folders</li>
+                                                        <li>Conditions</li>
+                                                    </ul>
+                                                    <p class="text card-text">
+                                                        The conditions had great importance, hiding or showing fields in cascade depending on the entries' values. 
+                                                        Due to this, these data assets were structured to be fulfilled from the top to the bottom.
+                                                        <br>
+                                                        <br>
+                                                        With this tool, and the systems that back it, we created variations of the same enemy type.
+                                                    </p>                                                   
+                                                </div>
+                                                <img class="vertical-medium-card-media" src="resources/images/pounce-palace/ability-example.png" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="title card-title white">Demonstration</p>
+                                            </div>
+                                            <div class="card-content-block">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-target.png" alt="">
+                                                    <figcaption class="text white">Ability Target</figcaption>
+                                                </figure>
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-cast.png" alt="">
+                                                    <figcaption class="text white">Ability Cast</figcaption>
+                                                </figure>
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-projectile.png" alt="">
+                                                    <figcaption class="text white">Ability Projectile</figcaption>
+                                                </figure>
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-aoe.png" alt="">
+                                                    <figcaption class="text white">Ability AoE</figcaption>
+                                                </figure>
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-movement.png" alt="">
+                                                    <figcaption class="text white">Ability Movement</figcaption>
+                                                </figure>
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-behavior.png" alt="">
+                                                    <figcaption class="text white">Ability Behavior</figcaption>
+                                                </figure>
+                                            </div>
+                                            <div class="card-content-block">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="horizontal-medium-card-media" src="resources/videos/pounce-palace/throw-rock-ability.gif" alt="">
+                                                    <figcaption class="text white">Throw Rock Ability</figcaption>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

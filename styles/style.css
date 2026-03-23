@@ -207,6 +207,12 @@ figcaption
     align-self: center;
 }
 
+.horizontal-small-card-media
+{
+    width: 25vw;
+    margin: auto;
+}
+
 .horizontal-medium-card-media
 {
     width: 35vw;
@@ -416,6 +422,15 @@ figcaption
 }
 
 /*#endregion AI*/
+
+/*#region Tooling*/
+
+#tooling-banner
+{
+    background-image: url("../resources/images/tooling-banner.jpg");
+}
+
+/*#endregion Tooling*/
 
 #pounce-palace-banner
 {
