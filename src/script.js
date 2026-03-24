@@ -4,6 +4,7 @@ import { Subcategory } from "./classes/Subcategory.js";
 import { Card } from "./classes/Card.js";
 
 let imageZoomDiv;
+let imageZoomContainerDiv;
 
 const categoryExpanded = new Category();
 const subcategoryExpanded = new Subcategory();
@@ -74,13 +75,16 @@ function AttachClickHandler()
 
         clone.removeAttribute("id");
 
-        clone.classList.remove('clonable');
+        clone.removeAttribute("class");
 
         clone.setAttribute('id', 'zoomed-media');
 
-        imageZoomDiv.appendChild(clone);
+        clone.classList.remove('clonable');
+
+        imageZoomContainerDiv.appendChild(clone);
 
         event.stopPropagation();
+
     }));
 
     imageZoomDiv.querySelector('#image-zoom-cross').addEventListener('click', (event) => {
@@ -96,6 +100,8 @@ function AttachClickHandler()
 function OnDocumentLoaded()
 {
     imageZoomDiv = document.getElementById('image-zoom');
+
+    imageZoomContainerDiv = document.getElementById('image-zoom-container');
 
     AttachClickHandler();
 }

@@ -37,7 +37,6 @@ li
 
 figure
 {
-
     margin: 1rem auto;
 }
 
@@ -219,9 +218,9 @@ figcaption
     margin: auto;
 }
 
-.horizontal-large-card-media
+.vertical-small-card-media
 {
-    width: 80%;
+    width: 14.3vw;
     margin: auto;
 }
 
@@ -313,14 +312,24 @@ figcaption
 #image-zoom
 {
     display: none;
+    justify-content: center;
     align-items: center;
     position: fixed;
-    z-index: 100;
+    z-index: 20;
+}
+
+#image-zoom-container
+{
+    width: 80%;
+    height: 80%;
+    z-index: 30;
 }
 
 #zoomed-media
 {
-    z-index: 200;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;    
 }
 
 /*#region Web Header*/

@@ -10,6 +10,7 @@
         <div class="full-size" id="image-zoom">
             <div class="full-size opacity" style="position: absolute; background-color: black;"></div>
             <img class="cross" id="image-zoom-cross" src="resources/images/cross.png" alt="">
+            <div id="image-zoom-container"></div>
         </div>
         <div id="topbar">
             <img id="portrait" src="resources/images/topbar/portrait.jpeg" alt="abel-pujol-portrait">
@@ -157,9 +158,8 @@
                                                     <br>
                                                     To accomplish this requirement the threads work with a list filled with enemies' id, and those are distibuted when the enemies have been spawned and removed when they are defeated.
                                                 </p>
-                                                <div style="display: flex; flex-direction: column; ">
-                                                    <img class="clonable vertical-medium-card-media" src="resources/images/pounce-palace/add-agent-id.png" alt="">
-                                                    <img class="clonable vertical-medium-card-media" src="resources/images/pounce-palace/remove-agent-id.png" alt="">
+                                                <div style="display: flex; flex-direction: column; gap: 2%;">
+                                                    <img class="clonable horizontal-medium-card-media" src="resources/images/pounce-palace/agent-id.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="card-content-grid">
@@ -192,8 +192,8 @@
                                                 </ul>
                                             </div>
                                             <div class="card-content-block">
-                                                <figure class="clonable solid-border thin-border border-padding">
-                                                    <img class="horizontal-medium-card-media" src="resources/images/pounce-palace/profiler.png" alt="">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="clonable horizontal-medium-card-media" src="resources/images/pounce-palace/profiler.png" alt="">
                                                     <figcaption class="text white">Pounce Palace Performance</figcaption>
                                                 </figure>
                                             </div>
@@ -464,12 +464,12 @@
                                                 </p>
                                             </div>
                                             <div class="card-content-block">
-                                                <figure class="clonable solid-border thin-border border-padding">
-                                                    <img class="vertical-medium-card-media" src="resources/images/pounce-palace/triface.png" style="width: 14vw;" alt="">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="clonable vertical-small-card-media" src="resources/images/pounce-palace/triface.png" alt="">
                                                     <figcaption class="text white">Triface</figcaption>
                                                 </figure>
-                                                <figure class="clonable solid-border thin-border border-padding">
-                                                    <img class="horizontal-medium-card-media" src="resources/images/pounce-palace/longarms.png" alt="">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="clonable horizontal-medium-card-media" src="resources/images/pounce-palace/longarms.png" alt="">
                                                     <figcaption class="text white">Long Arms</figcaption>
                                                 </figure>
                                             </div>
@@ -503,34 +503,34 @@
                                                 <p class="title card-title white">Demonstration</p>
                                             </div>
                                             <div class="card-content-block">
-                                                <figure class="clonable solid-border thin-border border-padding">
-                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-target.png" alt="">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="clonable horizontal-small-card-media" src="resources/images/pounce-palace/ability-target.png" alt="">
                                                     <figcaption class="text white">Ability Target</figcaption>
                                                 </figure>
-                                                <figure class="clonable solid-border thin-border border-padding">
-                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-cast.png" alt="">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="clonable horizontal-small-card-media" src="resources/images/pounce-palace/ability-cast.png" alt="">
                                                     <figcaption class="text white">Ability Cast</figcaption>
                                                 </figure>
-                                                <figure class="clonable solid-border thin-border border-padding">
-                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-projectile.png" alt="">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="clonable horizontal-small-card-media" src="resources/images/pounce-palace/ability-projectile.png" alt="">
                                                     <figcaption class="text white">Ability Projectile</figcaption>
                                                 </figure>
-                                                <figure class="clonable solid-border thin-border border-padding">
-                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-aoe.png" alt="">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="clonable horizontal-small-card-media" src="resources/images/pounce-palace/ability-aoe.png" alt="">
                                                     <figcaption class="text white">Ability AoE</figcaption>
                                                 </figure>
-                                                <figure class="clonable solid-border thin-border border-padding">
-                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-movement.png" alt="">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="clonable horizontal-small-card-media" src="resources/images/pounce-palace/ability-movement.png" alt="">
                                                     <figcaption class="text white">Ability Movement</figcaption>
                                                 </figure>
-                                                <figure class="clonable solid-border thin-border border-padding">
-                                                    <img class="horizontal-small-card-media" src="resources/images/pounce-palace/ability-behavior.png" alt="">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="clonable horizontal-small-card-media" src="resources/images/pounce-palace/ability-behavior.png" alt="">
                                                     <figcaption class="text white">Ability Behavior</figcaption>
                                                 </figure>
                                             </div>
                                             <div class="card-content-block">
-                                                <figure class="clonable solid-border thin-border border-padding">
-                                                    <img class="horizontal-medium-card-media" src="resources/videos/pounce-palace/throw-rock-ability.gif" alt="">
+                                                <figure class="solid-border thin-border border-padding">
+                                                    <img class="clonable horizontal-medium-card-media" src="resources/videos/pounce-palace/throw-rock-ability.gif" alt="">
                                                     <figcaption class="text white">Throw Rock Ability</figcaption>
                                                 </figure>
                                             </div>
