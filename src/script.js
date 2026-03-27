@@ -12,6 +12,31 @@ const cardExpanded = new Card();
 
 const dropdownsClickedInOrder = [];
 
+function AddDropdownToStack(dropdownExpanded)
+{
+    dropdownsClickedInOrder[dropdownsClickedInOrder.length - 1].AddChildDropdown(dropdownExpanded);
+    dropdownsClickedInOrder[dropdownsClickedInOrder.length] = dropdownExpanded;
+}
+
+function RemoveDropdownFromStack(dropdownClosed)
+{
+    if(dropdownClosed.GetDropdown() == null)
+    {
+        return;
+    }
+
+    let match;
+
+    do{
+
+        match = dropdownClosed === dropdownsClickedInOrder[dropdownsClickedInOrder.length - 1];
+
+        dropdownClosed.Close();
+        dropdownsClickedInOrder.pop();
+
+    }while(!match);
+}
+
 function AttachClickHandler()
 {    
     document.querySelectorAll('.category-dropdown').forEach(categoryDropdown => categoryDropdown.addEventListener('click', (event) => {
@@ -21,6 +46,7 @@ function AttachClickHandler()
             return;
         }
 
+        RemoveDropdownFromStack(categoryExpanded);
         categoryExpanded.Close();
         categoryExpanded.Open(categoryDropdown);
         dropdownsClickedInOrder[dropdownsClickedInOrder.length] = categoryExpanded;
@@ -29,41 +55,46 @@ function AttachClickHandler()
 
     document.querySelectorAll('#category-cross').forEach(close => close.addEventListener('click', (event) => {
 
-        categoryExpanded.Close();
-        dropdownsClickedInOrder.pop();
+        RemoveDropdownFromStack(categoryExpanded);
         event.stopPropagation();
     }));
 
     document.querySelectorAll('.subcategory-dropdown').forEach(subcategoryDropdown => subcategoryDropdown.addEventListener('click', (event) => {
 
+        if(subcategoryExpanded.GetDropdown() != null)
+        {
+            RemoveDropdownFromStack(subcategoryExpanded);
+        }
+
         subcategoryExpanded.Close();
         subcategoryExpanded.Open(subcategoryDropdown);
-        dropdownsClickedInOrder[dropdownsClickedInOrder.length - 1].AddChildDropdown(subcategoryExpanded);
-        dropdownsClickedInOrder[dropdownsClickedInOrder.length] = subcategoryExpanded;
+        AddDropdownToStack(subcategoryExpanded);
         event.stopPropagation();
     }));
 
     document.querySelectorAll('#subcategory-cross').forEach(close => close.addEventListener('click', (event) => {
 
-        subcategoryExpanded.Close();
-        dropdownsClickedInOrder.pop();
+        RemoveDropdownFromStack(subcategoryExpanded);
         event.stopPropagation();
     }));
 
     document.querySelectorAll('.card-dropdown').forEach(cardDropdown => cardDropdown.addEventListener('click', (event) => {
 
+        if(cardExpanded.GetDropdown() != null)
+        {
+            RemoveDropdownFromStack(cardExpanded);
+        }
+
         cardExpanded.Close();
         cardExpanded.Open(cardDropdown);
-        dropdownsClickedInOrder[dropdownsClickedInOrder.length - 1].AddChildDropdown(cardExpanded);
-        dropdownsClickedInOrder[dropdownsClickedInOrder.length] = cardExpanded;
+        AddDropdownToStack(cardExpanded);
         event.stopPropagation();
     }));
 
 
     document.querySelectorAll('#card-cross').forEach(close => close.addEventListener('click', (event) => {
 
-        cardExpanded.Close();
-        dropdownsClickedInOrder.pop();
+        RemoveDropdownFromStack(cardExpanded);
         event.stopPropagation();
     }));
 

@@ -219,6 +219,12 @@ figcaption
     margin: auto;
 }
 
+.horizontal-large-card-media
+{
+    width: 80%;
+    margin: auto;
+}
+
 .vertical-small-card-media
 {
     width: 14.3vw;

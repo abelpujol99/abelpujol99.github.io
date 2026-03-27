@@ -3,11 +3,6 @@ import {Dropdown} from './Dropdown.js'
 
 export class Card extends Dropdown
 {
-    constructor(card)
-    {
-        super(card);
-    }
-
     Open(dropdown)
     {
         super.Open(dropdown);

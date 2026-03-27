@@ -7,18 +7,23 @@ export class Dropdown
 
     AddChildDropdown(childDropdwon)
     {
-        this.childDropdwon = childDropdwon;
+        this.childDropdown = childDropdwon;
+    }
+
+    GetDropdown()
+    {
+        return this.dropdown;
     }
 
     Close()
     {
-        if(this.childDropdwon == null)
+        if(this.childDropdown == null)
         {
             return;
         }
 
-        this.childDropdwon.Close();
+        this.childDropdown.Close();
 
-        this.childDropdwon = null;
+        this.childDropdown = null;
     }
 }
