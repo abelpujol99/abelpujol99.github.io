@@ -97,10 +97,11 @@ figcaption
 
 .category-dropdown-title-box
 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 12rem;
-    align-content: center;
-    justify-items: center;
     background-color: black;
 }
 
@@ -478,6 +479,11 @@ figcaption
 #online-chess-banner
 {
     background-image: url("../resources/images/online-chess/banner.jpg");
+}
+
+#patterns-banner
+{
+    background-image: url("../resources/images/patterns/banner.jpg");
 }
 
 /*#endregion Web Body*/

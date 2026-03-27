@@ -559,7 +559,46 @@
                                 <p class="main-title card-title white">Patterns</p>
                             </div>
                             <div class="card-content">
-                                <img class="cross" id="card-cross" alt="cross">                                
+                                <img class="cross" id="card-cross" alt="cross">
+                                <div class="card-content-grid">
+                                    <p class="text card-text">
+                                        Since my beginnings as a programmer, the vast majority of projects in which I have participated, I have used OOP.
+                                        <br>
+                                        This fact has led me to study the Design Patterns described by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.
+                                        <br>
+                                        <br>
+                                        This knowledge helped me to design better implementations in my projects.
+                                    </p>
+                                    <img class="clonable vertical-medium-card-media" src="resources/images/patterns/relationships.png" alt="">
+                                </div>
+                                <div>
+                                    <p class="title card-title white">Example</p>
+                                </div>
+                                <div class="card-content-grid">
+                                    <p class="text card-text">
+                                        In an as-yet-unpublished C++ project related to mouse inputs, a given input triggers a given command.
+                                        <br>
+                                        <br>
+                                        My implementation requires a map, where the key is an input code and the value is an object that would manage the command given to that input, with the input log value.
+                                    </p>
+                                    <img class="clonable horizontal-medium-card-media" src="resources/images/patterns/strategy-image-1.png" alt="">
+                                </div>
+                                <div class="card-content-grid">
+                                    <p class="text card-text">
+                                        But the input logs are not equal from button to scroll. Due to this, they need to be treated differently.
+                                        <br>
+                                        <br>
+                                        This implementation requires a Strategy to treat button input logs and another one to treat scroll input logs. 
+                                        Once they are implemented, an interface must be implemented too.
+                                    </p>
+                                    <img class="clonable horizontal-medium-card-media" src="resources/images/patterns/strategy-image-2.png" alt="">
+                                </div>
+                                <div class="card-content-grid">
+                                    <p class="text card-text">
+                                        Finally, these Strategies have to implement this interface in order to be stored in that map, for later use.
+                                    </p>
+                                    <img class="clonable horizontal-medium-card-media" src="resources/images/patterns/strategy-image-3.png" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
