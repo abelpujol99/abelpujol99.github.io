@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Abel Pujol - Portfolio</title>
+        <link rel="stylesheet" href="../styles/reset.css">
+        <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+        <div class="main-title page-title white">
+            <p class="main-title page-title">Pounce Palace</p>
+        </div>
+        <div class="page-content">
+            <div class="page-content-grid">
+                <p class="text white page-text">
+                    Pounce Palace is a singleplayer first-person platformer game where the player has to acquire movement skills and learn how to use them in order to defeat the enemies in their path to complete the level.
+                    <br>
+                    This game was developed in Unity.
+                </p>
+                <video class="clickable horizontal-medium-page-media" autoplay muted loop>
+                    <source src="../resources/videos/pounce-palace/trailer.mp4">
+                </video>
+            </div>
+            <div class="page-content-grid">
+                <p class="text white page-text">
+                    The enemies in Pounce Palace must be controlled by an AI that decides the best output based on the situation. 
+                    In addition, there are 2 types of enemies, static and mobile. So a system must be developed that gives mobile enemies the most optimal path.
+                </p>
+                <img class="clickable horizontal-medium-page-media" src="../resources/images/pounce-palace/enemies-thicket.png" alt="">
+            </div>
+            <div>
+                <p class="title page-title white">Implementation</p>
+            </div>
+            <div class="page-content-grid">
+                <p class="text white page-text">
+                    The decisions made by the AI would be a great weight for the performance and should be easily modified. With that knowledge, the chosen Decision Making algorithm had to be optimal and very easy to tweak when the iterations come.
+                    Due to these requirements, the algorithm chosen was UBS (Utility Based System), this algorithm has regular computational cost and has no difficulty being expanded.
+                    <br>
+                    <br>
+                    The output would be translated to an action that the enemy performs. Some of these actions were desired to be repeated indefinitely if needed, but others don't; to handle this, each enemy had a list of actions that could be repeated.
+                </p>
+                <img class="clickable vertical-medium-page-media" src="../resources/images/pounce-palace/ubs.png" alt="">
+            </div>
+            <div class="page-content-grid">
+                <div>
+                    <p class="text white page-text">
+                        A requirement for the mobile AI was not to collide against other AIs, whether mobile or not. 
+                        To make this possible, the AIs need to have a "personal area" that no AI should enter, but Unity's built-in NavMesh doesn't allow that behavior.
+                        <br>
+                        <br>
+                        I solved this issue by implementing our own NavMesh, with Unity's NavMesh help. 
+                        To create our NavMesh, we get Unity's NavMesh volume, then from the top of the plane to its bottom we launch Raycasts, they are distributed with a predefined separation from the editor.
+                        These Raycasts retrieves the hits with the NavMesh surfaces, with an epsilon to cover more surface.
+                        With that information the nodes were disposed where the hits take place. Once all nodes were placed, they were connected to other nodes if:
+                    </p>
+                    <ul class="text white page-text">
+                        <li>The other node was inside a distance threshold</li>
+                        <li>The connecition didn't create an edge that went outside of the Unity's NavMesh surface</li>
+                    </ul>
+                    <p class="text white page-text">
+                        <br>
+                        <br>
+                        These computations are too slow to be done once the game starts. But this data would be persistent throughout the game,
+                        so, we create this NavMesh from the editor and save it as a binary file, and when the game begins, all the mobile enemies obtain a DeepCopy of that NavMesh.
+                        <br>
+                        <br>
+                        With this solution, we could define "personal areas" for all the AIs by incrementing their nearer edges' weight. Thus, they avoid colliding with each other.
+                    </p>
+                </div>
+                <img class="clickable vertical-medium-page-media" src="../resources/images/pounce-palace/nav-mesh.png" alt="">
+            </div>
+            <div>
+                <p class="text white page-text">
+                    Taking control of the AI movement was great, but led to another issue: the movement was visibly calculated by an AI.
+                    To avoid this perception from the player, I decided to take control of the Parthfinding algorithm. We needed one that was optimal and fast. A* achieves these requirements due to their use of heuristics.
+                    <br>
+                    <br>
+                    When A* returned a path, this was optimized out by first removing any node that was not a corner point, and followed by removing any node that might be an unnecessary step between 2 nodes.
+                    Finally, the optimized path was disposed to the AI.
+                </p>
+            </div>
+        </div>
+        <div class="back-to-home">
+            <p class="back-button text white round-border">Back to home</p>
+        </div>
+        <script type="module" src="../src/sub-pages-script.js"></script>
+        <noscript>Sorry, your browser doesn't support Javascript</noscript>
+    </body>
+</html>

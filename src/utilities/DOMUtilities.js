@@ -8,6 +8,11 @@ export function DisplayNone(element)
     element.style.display = "none";
 }
 
+export function UpdateOpacity(element, newOpacity)
+{
+    element.style.opacity = newOpacity;
+}
+
 export function AddCursorPointer(element)
 {
     if(element == null)

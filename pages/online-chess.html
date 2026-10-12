@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Abel Pujol - Portfolio</title>
+        <link rel="stylesheet" href="../styles/reset.css">
+        <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+        <div>
+            <p class="main-title page-title white">Chess</p>
+        </div>
+        <div class="page-content">
+            <div class="page-content-grid">
+                <p class="text white page-text">
+                    This game is an online chess game, and can look simple, but has a peculiarity, depending in the screen the player is, the connection could be server-client or P2P.
+                    <br>
+                    <br>
+                    This game was developed with the framework SFML, making use of their TCP sockets, and I was responsible for developing the network part.
+                </p>
+                <img class="clickable horizontal-medium-page-media" src="../resources/images/online-chess/image1.png" alt="">
+            </div>
+            <div>
+                <p class="title page-title white">Implementation</p>
+            </div>
+            <div>
+                <p class="text white page-text">
+                    We wanted to give the users the capability to choose between being a server or a client.
+                    <br>
+                    <br>
+                    To make this possible, when the application starts, it asks the user what they want to be. 
+                    If they choose server mode, they will open a port to make possible the connection. And if they choose client mode, they must type the IP in order to connect with the server.
+                </p>
+            </div>
+            <div class="page-content-block">
+                <video class="clickable horizontal-large-page-media" autoplay muted loop>
+                    <source src="../resources/videos/online-chess/server-connection.mp4">
+                </video>
+            </div>
+            <div>
+                <p class="text white page-text">
+                    The server handles the next client requests:
+                </p>
+                <ul class="text white page-text">
+                    <li>Connect To Server</li>
+                    <li>Login</li>
+                    <li>Create Room</li>
+                    <li>Join Room as Player</li>
+                    <li>Join Room as Spectator</li>
+                    <li>Send Message</li>
+                    <li>Ready to Play</li>
+                </ul>
+            </div>
+            <div class="page-content-block">
+                <video class="clickable horizontal-large-page-media" autoplay muted loop>
+                    <source src="../resources/videos/online-chess/packets.mp4">
+                </video>
+            </div>
+            <div>
+                <p class="text white page-text">
+                    Once the match has begun, all the clients' sockets inside the room are closed, and connection P2P starts.
+                    In this state the "ruler" is the client who has been inside the room the longest.
+                    <br>
+                    <br>
+                    During the match the ruler handles the next requests:
+                </p>
+                <ul class="text white page-text">
+                    <li>Exit Room</li>
+                    <li>Send Message</li>
+                    <li>Select Piece</li>
+                    <li>Deselect Piece</li>
+                    <li>Move Piece</li>
+                    <li>Pawn Promotion</li>
+                    <li>Castle</li>
+                    <li>En Passsant</li>
+                </ul>
+            </div>
+            <div class="page-content-block">
+                <video class="clickable horizontal-large-page-media" autoplay muted loop>
+                    <source src="../resources/videos/online-chess/match.mp4">
+                </video>
+            </div>                                            
+        </div>
+        <div class="back-to-home">
+            <p class="back-button text white round-border">Back to home</p>
+        </div>
+        <script type="module" src="../src/sub-pages-script.js"></script>
+        <noscript>Sorry, your browser doesn't support Javascript</noscript>
+    </body>
+</html>

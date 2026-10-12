@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Abel Pujol - Portfolio</title>
+        <link rel="stylesheet" href="../styles/reset.css">
+        <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+        <div class="main-title page-title white">
+            <p class="main-title page-title">Pounce Palace</p>
+        </div>
+        <div class="page-content">
+            <div class="page-content-grid">
+                <p class="text white page-text">
+                    Since my beginnings as a programmer, the vast majority of projects in which I have participated, I have used OOP.
+                    <br>
+                    This fact has led me to study the Design Patterns described by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.
+                    <br>
+                    <br>
+                    This knowledge helped me to design better implementations in my projects.
+                </p>
+                <img class="clickable vertical-medium-page-media" src="../resources/images/patterns/relationships.png" alt="">
+            </div>
+            <div>
+                <p class="title page-title white">Example</p>
+            </div>
+            <div class="page-content-grid">
+                <p class="text white page-text">
+                    In an as-yet-unpublished C++ project related to mouse inputs, a given input triggers a given command.
+                    <br>
+                    <br>
+                    My implementation requires a map, where the key is an input code and the value is an object that would manage the command given to that input, with the input log value.
+                </p>
+                <img class="clickable horizontal-medium-page-media" src="../resources/images/patterns/strategy-image-1.png" alt="">
+            </div>
+            <div class="page-content-grid">
+                <p class="text white page-text">
+                    But the input logs are not equal from button to scroll. Due to this, they need to be treated differently.
+                    <br>
+                    <br>
+                    This implementation requires a Strategy to treat button input logs and another one to treat scroll input logs. 
+                    Once they are implemented, an interface must be implemented too.
+                </p>
+                <img class="clickable horizontal-medium-page-media" src="../resources/images/patterns/strategy-image-2.png" alt="">
+            </div>
+            <div class="page-content-grid">
+                <p class="text white page-text">
+                    Finally, these Strategies have to implement this interface in order to be stored in that map, for later use.
+                </p>
+                <img class="clickable horizontal-medium-page-media" src="../resources/images/patterns/strategy-image-3.png" alt="">
+            </div>
+        </div>
+        <div class="back-to-home">
+            <p class="back-button text white round-border">Back to home</p>
+        </div>
+        <script type="module" src="../src/sub-pages-script.js"></script>
+        <noscript>Sorry, your browser doesn't support Javascript</noscript>
+    </body>
+</html>
