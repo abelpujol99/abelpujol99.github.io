@@ -1,9 +1,80 @@
 import * as DomUtilities from "./utilities/DOMUtilities.js";
 
+let topbar;
 let imageZoomDiv;
 let imageZoomContainerDiv;
 
+let publicationsDiv;
+let multithreadingDiv;
+let networkDiv;
+let aiDiv;
+let toolingDiv;
+let myCodeDiv;
+let aboutMeDiv;
+
 const dropdownsClickedInOrder = [];
+
+function RetrieveElements()
+{
+    topbar = document.getElementById("topbar");
+
+    imageZoomDiv = document.getElementById('image-zoom');
+
+    imageZoomContainerDiv = document.getElementById('image-zoom-container');
+
+    publicationsDiv = document.getElementById("publications");
+    multithreadingDiv = document.getElementById("multithreading");
+    networkDiv = document.getElementById("network");
+    aiDiv = document.getElementById("ai");
+    toolingDiv = document.getElementById("tooling");
+    myCodeDiv = document.getElementById("my-code");
+    aboutMeDiv = document.getElementById("about-me");
+}
+
+function ScrollToElement(element)
+{
+    const topbarHeight = topbar.getBoundingClientRect().height;
+
+    const spacing = parseFloat(getComputedStyle(element).fontSize);
+
+    const top = element.getBoundingClientRect().top + window.scrollY - topbarHeight - spacing;
+
+    window.scrollTo({
+        top: top,
+        behavior: "smooth"
+    });
+}
+
+function IndexClickHandler()
+{
+    document.querySelector("#publications-index").addEventListener("click", (event) => {
+        ScrollToElement(publicationsDiv);
+    });
+
+    document.querySelector("#multithreading-index").addEventListener("click", (event) => {
+        ScrollToElement(multithreadingDiv);
+    });
+
+    document.querySelector("#network-index").addEventListener("click", (event) => {
+        ScrollToElement(networkDiv);
+    });
+
+    document.querySelector("#ai-index").addEventListener("click", (event) => {
+        ScrollToElement(aiDiv);
+    });
+
+    document.querySelector("#tooling-index").addEventListener("click", (event) => {
+        ScrollToElement(toolingDiv);
+    });
+
+    document.querySelector("#my-code-index").addEventListener("click", (event) => {
+        ScrollToElement(myCodeDiv);
+    });
+
+    document.querySelector("#about-me-index").addEventListener("click", (event) => {
+        ScrollToElement(aboutMeDiv);
+    });
+}
 
 function AttachClickHandler()
 {    
@@ -52,7 +123,8 @@ function CardBannerHoverHandler()
 
         if(cardBannerDescription != null)
         {
-            DomUtilities.DisplayFlex(cardBannerDescription);
+            DomUtilities.UpdateOpacity(cardBannerDescription, "1");
+            DomUtilities.RemoveTransform(cardBannerDescription);
         }
 
         event.stopPropagation();
@@ -72,7 +144,8 @@ function CardBannerHoverHandler()
 
         if(cardBannerDescription != null)
         {
-            DomUtilities.DisplayNone(cardBannerDescription);
+            DomUtilities.UpdateOpacity(cardBannerDescription, "0");
+            DomUtilities.UpdateTransformY(cardBannerDescription, 80);
         }
 
         event.stopPropagation();
@@ -109,9 +182,9 @@ function CardBannerLinks()
 
 function OnDocumentLoaded()
 {
-    imageZoomDiv = document.getElementById('image-zoom');
+    RetrieveElements();
 
-    imageZoomContainerDiv = document.getElementById('image-zoom-container');
+    IndexClickHandler();
 
     AttachClickHandler();
 

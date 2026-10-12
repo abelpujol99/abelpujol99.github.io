@@ -220,13 +220,17 @@ figcaption
 {
     position: absolute;
     inset: 0;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     padding: 1em;
     z-index: 1;
-    transition: display var(--transition-time);
+    opacity: 0;
+    transform: translateY(80px);
+    transition: 
+        opacity var(--transition-time),
+        transform var(--transition-time);
 }
 
 .card-banner-description-background
@@ -483,7 +487,7 @@ figcaption
     transition: height var(--transition-time);
 }
 
-#about-me
+#about-me-div
 {
     display: flex;
     align-items: center;
@@ -568,6 +572,11 @@ figcaption
 #code-good-practices
 {
 
+}
+
+#publications, #multithreading, #network, #ai, #tooling, #my-code, #about-me
+{
+    scroll-margin-top: 4em;
 }
 
 /*#endregion Main Topics*/
@@ -658,13 +667,18 @@ figcaption
 {
     #topbar
     {
-        height: 10em;
+        height: 8em;
         gap: 0%;
     }
 
     #content
     {
-        margin-top: 13em;
+        margin-top: 8em;
+    }
+
+    #about-me-div
+    {
+        gap: 0%;
     }
 }
 

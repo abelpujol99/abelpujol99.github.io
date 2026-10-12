@@ -13,6 +13,17 @@ export function UpdateOpacity(element, newOpacity)
     element.style.opacity = newOpacity;
 }
 
+export function UpdateTransformY(element, newTransformY)
+{
+    console.log("Hello");
+    element.style.transform = "translateY(" + newTransformY + "px)";
+}
+
+export function RemoveTransform(element)
+{
+    element.style.transform = "none";
+}
+
 export function AddCursorPointer(element)
 {
     if(element == null)

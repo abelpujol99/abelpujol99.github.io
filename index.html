@@ -15,13 +15,13 @@
         </div>
         <!--Index-->
         <div id="topbar">
-            <p class="text white clickable">Publications</p>
-            <p class="text white clickable">MultiThreading</p>
-            <p class="text white clickable">Network</p>
-            <p class="text white clickable">AI</p>
-            <p class="text white clickable">Tooling</p>
-            <p class="text white clickable">My Code</p>
-            <p class="text white clickable">About me</p>
+            <p class="text white clickable" id="publications-index">Publications</p>
+            <p class="text white clickable" id="multithreading-index">MultiThreading</p>
+            <p class="text white clickable" id="network-index">Network</p>
+            <p class="text white clickable" id="ai-index">AI</p>
+            <p class="text white clickable" id="tooling-index">Tooling</p>
+            <p class="text white clickable" id="my-code-index">My Code</p>
+            <p class="text white clickable" id="about-me-index">About me</p>
         </div>
         <!--Page Content-->
         <div id="content">     
@@ -115,7 +115,11 @@
                     </div>
                 </div>
             </div>
-            <div id="about-me">
+            <div class="category" id="about-me">
+                <div class="category-title">
+                    <p class="main-title white">About me</p>
+                </div>
+                <div id="about-me-div">
                 <img id="portrait" src="resources/images/topbar/portrait.jpeg" alt="abel-pujol-portrait">
                 <div id="personal-info">
                     <p class="main-title white">Abel Pujol</p>
@@ -135,7 +139,8 @@
                         <a class="text white" id="contact-link" href="https://www.linkedin.com/in/abel-pujol-1bb967250">linkedin.com/in/abel-pujol-1bb967250</a>
                     </div>
                 </div>
-            </div>    
+            </div>  
+            </div>  
         </div>
         <script type="module" src="src/main-page-script.js"></script>
         <noscript>Sorry, your browser doesn't support Javascript</noscript>
