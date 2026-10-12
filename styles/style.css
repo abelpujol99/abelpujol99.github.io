@@ -58,6 +58,14 @@ figcaption
 
 /*#region Font*/
 
+.name-title
+{
+    font-size: 7rem;
+    font-family: var(--font-family);
+    font-weight: bold;
+    transition: font-size var(--transition-time);
+}
+
 .main-title
 {
     font-size: var(--large-font-size);
@@ -471,14 +479,23 @@ figcaption
 
 /*#region Web Header*/
 
+#presentation-div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 #topbar
 {
+    position: fixed;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-evenly;
     align-items: center;
-    position: fixed;
     width: 100%;
     gap: 5%;
     height: 4em;
@@ -551,28 +568,11 @@ figcaption
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    position: absolute;
     width: 100%;
-    margin-top: 5em;
     transition: margin-top var(--transition-time);
 }
 
 /*#region Main Topics*/
-
-#publications
-{
-    
-}
-
-#topics
-{
-
-}
-
-#code-good-practices
-{
-
-}
 
 #publications, #multithreading, #network, #ai, #tooling, #my-code, #about-me
 {
@@ -645,6 +645,19 @@ figcaption
 
 /*#region Utilities*/
 
+#down-arrow
+{
+    position: absolute;
+    bottom: 20px;
+    content: url("../resources/images/down-arrow.png");
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7rem;
+    opacity: 1;
+    align-self: flex-end;
+    transition: opacity var(--transition-time);
+}
+
 #category-cross, #image-zoom-cross
 {
     margin-top: 3.5rem;
@@ -669,11 +682,6 @@ figcaption
     {
         height: 8em;
         gap: 0%;
-    }
-
-    #content
-    {
-        margin-top: 8em;
     }
 
     #about-me-div

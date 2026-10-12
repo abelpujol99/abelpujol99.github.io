@@ -15,7 +15,6 @@ export function UpdateOpacity(element, newOpacity)
 
 export function UpdateTransformY(element, newTransformY)
 {
-    console.log("Hello");
     element.style.transform = "translateY(" + newTransformY + "px)";
 }
 

@@ -1,6 +1,9 @@
 import * as DomUtilities from "./utilities/DOMUtilities.js";
 
 let topbar;
+
+let downArrow;
+
 let imageZoomDiv;
 let imageZoomContainerDiv;
 
@@ -17,6 +20,8 @@ const dropdownsClickedInOrder = [];
 function RetrieveElements()
 {
     topbar = document.getElementById("topbar");
+
+    downArrow = document.getElementById("down-arrow");
 
     imageZoomDiv = document.getElementById('image-zoom');
 
@@ -73,6 +78,23 @@ function IndexClickHandler()
 
     document.querySelector("#about-me-index").addEventListener("click", (event) => {
         ScrollToElement(aboutMeDiv);
+    });
+}
+
+function ScrollHandler()
+{
+    window.addEventListener("scroll", (event) => {
+
+        console.log("Scroll")
+
+        if(window.scrollY !== 0)
+        {
+            DomUtilities.UpdateOpacity(downArrow, "0");
+            return;
+        }
+
+        DomUtilities.UpdateOpacity(downArrow, "1");
+
     });
 }
 
@@ -185,6 +207,8 @@ function OnDocumentLoaded()
     RetrieveElements();
 
     IndexClickHandler();
+
+    ScrollHandler();
 
     AttachClickHandler();
 
