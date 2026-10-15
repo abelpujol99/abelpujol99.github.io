@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Abel Pujol - Portfolio</title>
         <link rel="stylesheet" href="styles/reset.css">
         <link rel="stylesheet" href="styles/style.css">
@@ -13,33 +14,43 @@
             <img class="cross" id="image-zoom-cross" src="resources/images/cross.png" alt="">
             <div id="image-zoom-container"></div>
         </div>
+        <!--Index-->
         <div id="topbar">
-            <p class="text white clickable" id="publications-index">Publications</p>
-            <p class="text white clickable" id="multithreading-index">MultiThreading</p>
-            <p class="text white clickable" id="network-index">Network</p>
-            <p class="text white clickable" id="ai-index">AI</p>
-            <p class="text white clickable" id="tooling-index">Tooling</p>
-            <p class="text white clickable" id="my-code-index">My Code</p>
-            <p class="text white clickable" id="about-me-index">About me</p>
+            <p class="header-4 index-container white clickable" id="publications-index">Publications</p>
+            <p class="header-4 index-container white clickable" id="multithreading-index">Multithreading</p>
+            <p class="header-4 index-container white clickable" id="network-index">Network</p>
+            <p class="header-4 index-container white clickable" id="ai-index">AI</p>
+            <p class="header-4 index-container white clickable" id="tooling-index">Tooling</p>
+            <p class="header-4 index-container white clickable" id="my-code-index">My Code</p>
+            <p class="header-4 index-container white clickable" id="about-me-index">About me</p>
+        </div>
+        <img id="hamburger-menu-image" src="resources/images/hamburger-menu.png" alt=""></img>
+        <div id="hamburger-menu">
+            <p class="header-4 index-container white clickable" id="publications-hamburger-index">Publications</p>
+            <p class="header-4 index-container white clickable" id="multithreading-hamburger-index">Multithreading</p>
+            <p class="header-4 index-container white clickable" id="network-hamburger-index">Network</p>
+            <p class="header-4 index-container white clickable" id="ai-hamburger-index">AI</p>
+            <p class="header-4 index-container white clickable" id="tooling-hamburger-index">Tooling</p>
+            <p class="header-4 index-container white clickable" id="my-code-hamburger-index">My Code</p>
+            <p class="header-4 index-container white clickable" id="about-me-hamburger-index">About me</p>
         </div>
         <div id="presentation-div">
-            <p class="name-title white">Abel Pujol</p>
-            <p class="main-title white">Game Developer | Programmer</p>
+            <p class="header-1 white bold">Abel Pujol</p>
+            <p class="header-2 white bold">Game Developer | Programmer</p>
             <img id="down-arrow"></img>
         </div>
-        <!--Index-->
         <!--Page Content-->
         <div id="content">     
             <div class="category" id="publications">
                 <div class="category-title">
-                    <p class="main-title white">Publications</p> 
+                    <p class="header-2 white bold">Publications</p> 
                 </div>
                 <div class="category-content">
                     <div class="card-banner round-border" id="farlands-tiny-harvest">
                         <img class="card-banner-image round-border" id="farlands-tiny-harvest-banner">
                         <div class="card-banner-description-background"></div>
                         <div class="card-banner-description">
-                            <p class="card-banner-title white">Farlands Tiny Harvest</p>
+                            <p class="header-4 white bold">Farlands Tiny Harvest</p>
                             <p class="text white">Description</p>
                         </div>
                     </div>
@@ -47,14 +58,14 @@
             </div>
             <div class="category" id="multithreading">
                 <div class="category-title">
-                    <p class="main-title white">MultiThreading</p> 
+                    <p class="header-2 white bold">Multithreading</p> 
                 </div>
                 <div class="category-content">
                     <div class="card-banner round-border" id="pathfinding-pounce-palace">
                         <img class="card-banner-image round-border" id="pounce-palace-banner">
                         <div class="card-banner-description-background"></div>
                         <div class="card-banner-description">
-                            <p class="card-banner-title white">Pathfinding - Pounce Palace</p>
+                            <p class="header-4 white bold">Pathfinding - Pounce Palace</p>
                             <p class="text white">Description</p>
                         </div>
                     </div>
@@ -62,14 +73,14 @@
             </div>
             <div class="category" id="network">
                 <div class="category-title">
-                    <p class="main-title white">Network</p> 
+                    <p class="header-2 white bold">Network</p> 
                 </div>
                 <div class="category-content">
                     <div class="card-banner round-border" id="online-chess">
                         <img class="card-banner-image round-border" id="online-chess-banner">
                         <div class="card-banner-description-background"></div>
                         <div class="card-banner-description">
-                            <p class="card-banner-title white">Chess</p>
+                            <p class="header-4 white bold">Chess</p>
                             <p class="text white">Description</p>
                         </div>
                     </div>
@@ -77,14 +88,14 @@
             </div>
             <div class="category" id="ai">
                 <div class="category-title">
-                    <p class="main-title white">AI</p> 
+                    <p class="header-2 white bold">AI</p> 
                 </div>
                 <div class="category-content">
                     <div class="card-banner round-border"  id="enemies-pounce-palace">
                         <img class="card-banner-image round-border" id="pounce-palace-banner">
                         <div class="card-banner-description-background"></div>
                         <div class="card-banner-description">
-                            <p class="card-banner-title white">Enemies - Pounce Palace</p>
+                            <p class="header-4 white bold">Enemies - Pounce Palace</p>
                             <p class="text white">Description</p>
                         </div>
                     </div>
@@ -92,14 +103,14 @@
             </div>
             <div class="category" id="tooling">
                 <div class="category-title">
-                    <p class="main-title white">Tooling</p> 
+                    <p class="header-2 white bold">Tooling</p> 
                 </div>
                 <div class="category-content">
                     <div class="card-banner round-border"  id="ability-maker-pounce-palace">
                         <img class="card-banner-image round-border" id="pounce-palace-banner">
                         <div class="card-banner-description-background"></div>
                         <div class="card-banner-description">
-                            <p class="card-banner-title white">Ability Maker - Pounce Palace</p>
+                            <p class="header-4 white bold">Ability Maker - Pounce Palace</p>
                             <p class="text white">Description</p>
                         </div>
                     </div>
@@ -107,14 +118,14 @@
             </div>
             <div class="category" id="my-code">
                 <div class="category-title">
-                    <p class="main-title white">My Code</p> 
+                    <p class="header-2 white bold">My Code</p> 
                 </div>
                 <div class="category-content">
                     <div class="card-banner round-border"  id="code-patterns">
                         <img class="card-banner-image round-border" id="patterns-banner">
                         <div class="card-banner-description-background"></div>
                         <div class="card-banner-description">
-                            <p class="card-banner-title white">Patterns</p>
+                            <p class="header-4 white bold">Patterns</p>
                             <p class="text white">Description</p>
                         </div>
                     </div>
@@ -122,30 +133,34 @@
             </div>
             <div class="category" id="about-me">
                 <div class="category-title">
-                    <p class="main-title white">About me</p>
+                    <p class="header-2 white bold">About me</p>
                 </div>
                 <div id="about-me-div">
-                <img id="portrait" src="resources/images/topbar/portrait.jpeg" alt="abel-pujol-portrait">
-                <div id="personal-info">
-                    <p class="main-title white">Abel Pujol</p>
-                    <p class="text white">Game Developer | Programmer</p>
+                    <img id="portrait" src="resources/images/topbar/portrait.jpeg" alt="abel-pujol-portrait">
+                    <p class="text white text-block">
+                        My name is Abel Pujol, I have been interested in coding since I was a child. 
+                        At 9, I did my first extracurricular activity, programming in Scratch. 
+                        At 18 I started studying computer science at a specialty school. 
+                        As my final project I re-created Arkanoid in CMD. 
+                        At 22, I transitioned to programming for games, both in university and in personal projects. 
+                        In every project that I work on, I focus on improving my programming skills by learning new patterns and techniques. Furthermore, I frequently revisit past projects in order to learn from my mistakes and gain new insight.
+                    </p>
                 </div>
                 <div id="contact-list">
                     <div id="contact">
                         <span>
                             <img id="contact-icon" src="resources/images/topbar/gmail.png" alt="gmail-icon">
                         </span>
-                        <a class="text white" id="contact-link" href="mailto:abelpujol99@gmail.com">abelpujol99@gmail.com</a>
+                        <a class="header-4 white" id="contact-link" href="mailto:abelpujol99@gmail.com">abelpujol99@gmail.com</a>
                     </div>
                     <div id="contact">
                         <span>
                             <img id="contact-icon" src="resources/images/topbar/linked-in.png" alt="linked-in-icon">
                         </span>
-                        <a class="text white" id="contact-link" href="https://www.linkedin.com/in/abel-pujol-1bb967250">linkedin.com/in/abel-pujol-1bb967250</a>
+                        <a class="header-4 white" id="contact-link" href="https://www.linkedin.com/in/abelpujol99">linkedin.com/in/abelpujol99</a>
                     </div>
                 </div>
-            </div>  
-            </div>  
+            </div>
         </div>
         <script type="module" src="src/main-page-script.js"></script>
         <noscript>Sorry, your browser doesn't support Javascript</noscript>

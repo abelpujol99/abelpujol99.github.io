@@ -8,24 +8,24 @@
         <link rel="stylesheet" href="../styles/style.css">
     </head>
     <body>
-        <div>
-            <p class="main-title page-title white">Chess</p>
+        <div class="page-title">
+            <p class="header-1 white bold">Chess</p>
         </div>
-        <div class="page-content">
-            <div class="page-content-grid">
-                <p class="text white page-text">
+        <div class="content">
+            <div class="content-grid">
+                <p class="text white text-block">
                     This game is an online chess game, and can look simple, but has a peculiarity, depending in the screen the player is, the connection could be server-client or P2P.
                     <br>
                     <br>
                     This game was developed with the framework SFML, making use of their TCP sockets, and I was responsible for developing the network part.
                 </p>
-                <img class="clickable horizontal-medium-page-media" src="../resources/images/online-chess/image1.png" alt="">
+                <img class="clickable horizontal-medium-media" src="../resources/images/online-chess/image1.png" alt="">
+            </div>
+            <div class="page-title">
+                <p class="header-2 white bold">Implementation</p>
             </div>
             <div>
-                <p class="title page-title white">Implementation</p>
-            </div>
-            <div>
-                <p class="text white page-text">
+                <p class="text white text-block">
                     We wanted to give the users the capability to choose between being a server or a client.
                     <br>
                     <br>
@@ -33,16 +33,16 @@
                     If they choose server mode, they will open a port to make possible the connection. And if they choose client mode, they must type the IP in order to connect with the server.
                 </p>
             </div>
-            <div class="page-content-block">
-                <video class="clickable horizontal-large-page-media" autoplay muted loop>
+            <div class="content-block">
+                <video class="clickable horizontal-large-media" autoplay muted loop>
                     <source src="../resources/videos/online-chess/server-connection.mp4">
                 </video>
             </div>
             <div>
-                <p class="text white page-text">
+                <p class="text white text-block">
                     The server handles the next client requests:
                 </p>
-                <ul class="text white page-text">
+                <ul class="text white text-block">
                     <li>Connect To Server</li>
                     <li>Login</li>
                     <li>Create Room</li>
@@ -52,20 +52,20 @@
                     <li>Ready to Play</li>
                 </ul>
             </div>
-            <div class="page-content-block">
-                <video class="clickable horizontal-large-page-media" autoplay muted loop>
+            <div class="content-block">
+                <video class="clickable horizontal-large-media" autoplay muted loop>
                     <source src="../resources/videos/online-chess/packets.mp4">
                 </video>
             </div>
             <div>
-                <p class="text white page-text">
+                <p class="text white text-block">
                     Once the match has begun, all the clients' sockets inside the room are closed, and connection P2P starts.
                     In this state the "ruler" is the client who has been inside the room the longest.
                     <br>
                     <br>
                     During the match the ruler handles the next requests:
                 </p>
-                <ul class="text white page-text">
+                <ul class="text white text-block">
                     <li>Exit Room</li>
                     <li>Send Message</li>
                     <li>Select Piece</li>
@@ -76,8 +76,8 @@
                     <li>En Passsant</li>
                 </ul>
             </div>
-            <div class="page-content-block">
-                <video class="clickable horizontal-large-page-media" autoplay muted loop>
+            <div class="content-block">
+                <video class="clickable horizontal-large-media" autoplay muted loop>
                     <source src="../resources/videos/online-chess/match.mp4">
                 </video>
             </div>                                            

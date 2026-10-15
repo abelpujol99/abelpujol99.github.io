@@ -6,15 +6,14 @@
 :root
 {
     /*#region Fonts*/
-    --large-font-size: 3rem;
-    --medium-font-size: 2.5rem;
-    --small-font-size: 1.3rem;
-    --tiny-font-size: 0.3rem;
+    --header-one-font-size: 7rem;
+    --header-two-font-size: 3rem;
+    --header-three-font-size: 2.3rem;
+    --header-four-font-size: 1.8rem;
+    --text-font-size: 1.5rem;
 
     --font-family: Alphazet;
     /*#endregion Fonts*/
-
-    --portrait-height: clamp(30%, calc(1.5rem + 12vw) , 85%);
 
     --logo-size: 4vw;
 
@@ -58,49 +57,39 @@ figcaption
 
 /*#region Font*/
 
-.name-title
+.header-1
 {
-    font-size: 7rem;
+    font-size: var(--header-one-font-size);
     font-family: var(--font-family);
-    font-weight: bold;
     transition: font-size var(--transition-time);
 }
 
-.main-title
+.header-2
 {
-    font-size: var(--large-font-size);
+    font-size: var(--header-two-font-size);
     font-family: var(--font-family);
-    font-weight: bold;
-    transition: font-size var(--transition-time);
+    transition: font-size var(--transition-time);    
 }
 
-.title
+.header-3
 {
-    font-size: var(--medium-font-size);
+    font-size: var(--header-three-font-size);
+    font-family: var(--font-family);
+    transition: font-size var(--transition-time);    
+}
+
+.header-4
+{
+    font-size: var(--header-four-font-size);
     font-family: var(--font-family);
     transition: font-size var(--transition-time);
 }
 
 .text
 {
-    font-size: var(--small-font-size);
+    font-size: var(--text-font-size);
     font-family: var(--font-family);
     transition: font-size var(--transition-time);
-}
-
-.tiny-text
-{
-    font-size: var(--tiny-font-size);
-    font-family: var(--font-family);
-    transition: font-size var(--transition-time);
-}
-
-.card-banner-title
-{
-    font-size: 1.7rem;
-    font-family: var(--font-family);
-    transition: font-size var(--transition-time);
-    font-weight: bold;
 }
 
 .white
@@ -108,9 +97,20 @@ figcaption
     color: white;
 }
 
+.bold
+{
+    font-weight: bold;
+}
+
 /*#endregion Font*/
 
 /*#region Categories*/
+
+.index-container
+{
+    width: fit-content;
+    padding: 1rem;
+}
 
 .category
 {
@@ -294,60 +294,61 @@ figcaption
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     margin-top: 5rem;
 }
 
-.page-content
+.content
 {
     padding: 2rem;
     width: calc(100% - 4rem);
 }
 
-.page-content-grid
+.content-grid
 {
     display: grid;
     grid-template-columns: 50% 50%;
     margin: 2rem auto;
 }
 
-.page-content-block
+.content-block
 {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
 }
 
-.page-text
+.text-block
 {
     margin: 2rem;
     align-self: center;
 }
 
-.horizontal-small-page-media
+.horizontal-small-media
 {
     width: 25vw;
     margin: auto;
 }
 
-.horizontal-medium-page-media
+.horizontal-medium-media
 {
     width: 35vw;
     margin: auto;
 }
 
-.horizontal-large-page-media
+.horizontal-large-media
 {
     width: 80%;
     margin: auto;
 }
 
-.vertical-small-page-media
+.vertical-small-media
 {
     width: 14.3vw;
     margin: auto;
 }
 
-.vertical-medium-page-media
+.vertical-medium-media
 {
     width: 25vw;
     margin: auto;
@@ -479,84 +480,104 @@ figcaption
 
 /*#region Web Header*/
 
+#topbar
+{
+    position: fixed;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    padding: 1rem;
+    gap: 5%;
+    z-index: 10;
+    background-color: black;
+    transition: height var(--transition-time);
+}
+
+#hamburger-menu
+{
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    background-color: black;
+    height: 100vh;
+    padding: 6rem 2rem 2rem 2rem;
+    z-index: 2;
+    transform: translateX(-100%);
+    transition: transform var(--transition-time);
+}
+
+#hamburger-menu-image
+{
+    position: fixed;
+    width: 48px;
+    height: 48px;
+    margin: 2rem;
+    z-index: 3;
+}
+
 #presentation-div
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-
-#topbar
-{
-    position: fixed;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-evenly;
-    align-items: center;
+    text-align: center;
     width: 100%;
-    gap: 5%;
-    height: 4em;
-    z-index: 10;
-    background-color: black;
-    transition: height var(--transition-time);
+    height: 100vh;
 }
 
 #about-me-div
 {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 30% 70%;
     width: 100%;
-    gap: 5%;
-    height: 14em;
+    box-sizing: border-box;
     background-color: black;
     transition: height var(--transition-time);
 }
 
 #portrait
 {
-    height: var(--portrait-height);
-    margin: 1em;
+    width: 80%;
+    height: auto;
+    margin: auto;
     object-fit: cover;
     align-self: center;
-    justify-self: center;
-}
-
-#personal-info
-{
-    width: clamp(20%, calc(0.5rem + 35vw), 40%);
-    color: var(--text-color);
-    font-family: var(--font-family);
-    justify-self: left;
 }
 
 #contact-list
 {
-    margin-left: 1rem;
-    height: 100%;
-    align-content: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    padding: 1rem;
 }
 
 #contact
 {
     display: flex;
     align-items: center;
-    white-space: nowrap;
+    padding: 1rem;
 }
 
 #contact-icon
 {
     display: block;
     margin: auto;
-    width: var(--small-font-size);
+    width: var(--header-three-font-size);
 }
 
 #contact-link
 {
     text-align: left;
     padding-left: 0.5em;
+    overflow-wrap: anywhere;
 }
 
 /*#endregion Web Header*/
@@ -678,15 +699,39 @@ figcaption
 
 @media only screen and (max-width: 1200px)
 {
+    .content-grid
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .index-container
+    {
+        padding: 1rem 0rem;
+    }
+
     #topbar
     {
-        height: 8em;
-        gap: 0%;
+        display: none;
+    }
+
+    #hamburger-menu
+    {
+        display: flex;
+    }
+
+    #portrait
+    {
+        width: 40%;
     }
 
     #about-me-div
     {
-        gap: 0%;
+        grid-template-columns: 1fr;
+    }
+
+    #contact-list
+    {
+        flex-direction: column;
     }
 }
 

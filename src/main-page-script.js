@@ -2,6 +2,11 @@ import * as DomUtilities from "./utilities/DOMUtilities.js";
 
 let topbar;
 
+let isHambugerMenuOpen = false;
+
+let hamburgerMenu;
+let hamburgerMenuImage;
+
 let downArrow;
 
 let imageZoomDiv;
@@ -21,6 +26,9 @@ function RetrieveElements()
 {
     topbar = document.getElementById("topbar");
 
+    hamburgerMenu = document.getElementById("hamburger-menu")
+    hamburgerMenuImage = document.getElementById("hamburger-menu-image");
+
     downArrow = document.getElementById("down-arrow");
 
     imageZoomDiv = document.getElementById('image-zoom');
@@ -34,6 +42,20 @@ function RetrieveElements()
     toolingDiv = document.getElementById("tooling");
     myCodeDiv = document.getElementById("my-code");
     aboutMeDiv = document.getElementById("about-me");
+}
+
+function OpenHamburgerMenu()
+{
+    isHambugerMenuOpen = true;
+    DomUtilities.ChangeImage(hamburgerMenuImage, "resources/images/cross.png");
+    DomUtilities.UpdateTransformX(hamburgerMenu, "0%");
+}
+
+function CloseHamburgerMenu()
+{
+    isHambugerMenuOpen = false;
+    DomUtilities.ChangeImage(hamburgerMenuImage, "resources/images/hamburger-menu.png");
+    DomUtilities.UpdateTransformX(hamburgerMenu, "-100%");
 }
 
 function ScrollToElement(element)
@@ -50,7 +72,7 @@ function ScrollToElement(element)
     });
 }
 
-function IndexClickHandler()
+function TopbarClickHandler()
 {
     document.querySelector("#publications-index").addEventListener("click", (event) => {
         ScrollToElement(publicationsDiv);
@@ -81,11 +103,58 @@ function IndexClickHandler()
     });
 }
 
+function HamburgerMenuClickHandler()
+{
+    document.querySelector("#hamburger-menu-image").addEventListener("click", (event) => {
+
+        if(!isHambugerMenuOpen)
+        {
+            OpenHamburgerMenu();
+            return;
+        }
+
+        CloseHamburgerMenu();
+    });
+
+    document.querySelector("#publications-hamburger-index").addEventListener("click", (event) => {
+        ScrollToElement(publicationsDiv);
+        CloseHamburgerMenu();
+    });
+
+    document.querySelector("#multithreading-hamburger-index").addEventListener("click", (event) => {
+        ScrollToElement(multithreadingDiv);
+        CloseHamburgerMenu();
+    });
+
+    document.querySelector("#network-hamburger-index").addEventListener("click", (event) => {
+        ScrollToElement(networkDiv);
+        CloseHamburgerMenu();
+    });
+
+    document.querySelector("#ai-hamburger-index").addEventListener("click", (event) => {
+        ScrollToElement(aiDiv);
+        CloseHamburgerMenu();
+    });
+
+    document.querySelector("#tooling-hamburger-index").addEventListener("click", (event) => {
+        ScrollToElement(toolingDiv);
+        CloseHamburgerMenu();
+    });
+
+    document.querySelector("#my-code-hamburger-index").addEventListener("click", (event) => {
+        ScrollToElement(myCodeDiv);
+        CloseHamburgerMenu();
+    });
+
+    document.querySelector("#about-me-hamburger-index").addEventListener("click", (event) => {
+        ScrollToElement(aboutMeDiv);
+        CloseHamburgerMenu();
+    });
+}
+
 function ScrollHandler()
 {
     window.addEventListener("scroll", (event) => {
-
-        console.log("Scroll")
 
         if(window.scrollY !== 0)
         {
@@ -167,7 +236,7 @@ function CardBannerHoverHandler()
         if(cardBannerDescription != null)
         {
             DomUtilities.UpdateOpacity(cardBannerDescription, "0");
-            DomUtilities.UpdateTransformY(cardBannerDescription, 80);
+            DomUtilities.UpdateTransformY(cardBannerDescription, "80px");
         }
 
         event.stopPropagation();
@@ -206,7 +275,9 @@ function OnDocumentLoaded()
 {
     RetrieveElements();
 
-    IndexClickHandler();
+    TopbarClickHandler();
+
+    HamburgerMenuClickHandler();
 
     ScrollHandler();
 

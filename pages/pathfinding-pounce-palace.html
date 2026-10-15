@@ -8,52 +8,52 @@
         <link rel="stylesheet" href="../styles/style.css">
     </head>
     <body>
-        <div>
-            <p class="main-title page-title white">Pounce Palace</p>
+        <div class="page-title">
+            <p class="header-1 white bold">Pathfinding - Pounce Palace</p>
         </div>
-        <div class="page-content">
-            <div class="page-content-grid">
-                <p class="text white page-text">
+        <div class="content">
+            <div class="content-grid">
+                <p class="text white text-block">
                     Pounce Palace is a first-person platformer game where the player has to acquire movement skills and learn how to use them in order to defeat the enemies in their path to complete the level.
                     <br>
                     This game was developed in Unity.
                 </p>
-                <video class="clickable horizontal-medium-page-media" autoplay muted loop>
+                <video class="clickable horizontal-medium-media" autoplay muted loop>
                     <source src="../resources/videos/pounce-palace/trailer.mp4">
                 </video>
             </div>
-            <div class="page-content-grid">
-                <p class="text white page-text">
+            <div class="content-grid">
+                <p class="text white text-block">
                     The foes are controlled by an AI, and this has to decide which is the most optimal action. Some enemies are static, but some others can move along the level. 
                     The Pathfinding computations can't reside in the main thread while trying to keep the game at 60 FPS, so I needed to implement multithreading to handle pathfinding algorithm calculations.
                 </p>
-                <img class="clickable horizontal-medium-page-media" src="../resources/images/pounce-palace/enemies-thicket.png" alt="">
+                <img class="clickable horizontal-medium-media" src="../resources/images/pounce-palace/enemies-thicket.png" alt="">
             </div>
-            <div>
-                <p class="title page-title white">Implementation</p>
+            <div class="page-title">
+                <p class="header-2 white bold">Implementation</p>
             </div>
-            <div class="page-content-grid">
-                <p class="text white page-text">
+            <div class="content-grid">
+                <p class="text white text-block">
                     To balance game performance and enemies' movement fluidity, the number of threads and the time elapsed to refresh the enemies' path must be easy to tweak.
                     <br>
                     <br>
                     To modify them easily those fields were exposed in the editor.
                 </p>
-                <img class="clickable horizontal-medium-page-media" src="../resources/images/pounce-palace/editor.png" alt="">
+                <img class="clickable horizontal-medium-media" src="../resources/images/pounce-palace/editor.png" alt="">
             </div>
-            <div class="page-content-grid">
-                <p class="text white page-text">
+            <div class="content-grid">
+                <p class="text white text-block">
                     In order to balance the work per thread, enemies' pathfinding calculations would be distributed between threads equitably.
                     <br>
                     <br>
                     To accomplish this requirement the threads work with a list filled with enemies' id, and those are distibuted when the enemies have been spawned and removed when they are defeated.
                 </p>
                 <div style="display: flex; flex-direction: column; gap: 2%;">
-                    <img class="clickable horizontal-medium-page-media" src="../resources/images/pounce-palace/agent-id.png" alt="">
+                    <img class="clickable horizontal-medium-media" src="../resources/images/pounce-palace/agent-id.png" alt="">
                 </div>
             </div>
-            <div class="page-content-grid">
-                <p class="text white page-text">
+            <div class="content-grid">
+                <p class="text white text-block">
                     The thread is not the one that has the necessity to execute the pathfinding algorithm in sequence when the time limit expires; it is each enemy that needs it. Thus, it would reduce resting times.
                     <br>
                     <br>
@@ -62,28 +62,28 @@
                     When this happens the selected id is positioned at the end of the list to cycle dynamically the priority, and finally, the timer starts again.
                     This method lets the enemies' needs balance the computation times, allowing the thread to work almost constantly.
                 </p>
-                <img class="clickable vertical-medium-page-media" src="../resources/images/pounce-palace/check-loop.png" alt="">
+                <img class="clickable vertical-medium-media" src="../resources/images/pounce-palace/check-loop.png" alt="">
             </div>
-            <div class="page-content-grid">
-                <p class="text white page-text">
+            <div class="content-grid">
+                <p class="text white text-block">
                     In addition, the threads need to get the positions of all the enemies, but Unity's API can only be used in the main thread.
                     To solve this problem, I defined a class with the purpose of storing the data necessary to update the NavMesh obstacles.
                     And when the computation needs to be done, the thread asks the main thread for the necessary information via events and allocates them in instances of that class.
                 </p>
-                <img class="clickable horizontal-medium-page-media" src="../resources/images/pounce-palace/event.png" alt="">
+                <img class="clickable horizontal-medium-media" src="../resources/images/pounce-palace/event.png" alt="">
             </div>
             <div>
-                <p class="text white page-text">
+                <p class="text white text-block">
                     These implementations allowed me to use mutex only when:
                 </p>
-                <ul class="text white page-text">
+                <ul class="text white text-block">
                     <li>Adding or removing an enemy from a thread.</li>
                     <li>The thread evaluates which enemy's path needs to be recalculated.</li>
                 </ul>
             </div>
-            <div class="page-content-block">
+            <div class="content-block">
                 <figure class="solid-border thin-border border-padding">
-                    <img class="clickable horizontal-medium-page-media" src="../resources/images/pounce-palace/profiler.png" alt="">
+                    <img class="clickable horizontal-medium-media" src="../resources/images/pounce-palace/profiler.png" alt="">
                     <figcaption class="text white">Pounce Palace Performance</figcaption>
                 </figure>
             </div>

@@ -13,9 +13,14 @@ export function UpdateOpacity(element, newOpacity)
     element.style.opacity = newOpacity;
 }
 
+export function UpdateTransformX(element, newTransformX)
+{
+    element.style.transform = "translateX(" + newTransformX + ")";
+}
+
 export function UpdateTransformY(element, newTransformY)
 {
-    element.style.transform = "translateY(" + newTransformY + "px)";
+    element.style.transform = "translateY(" + newTransformY + ")";
 }
 
 export function RemoveTransform(element)
@@ -36,4 +41,9 @@ export function AddCursorPointer(element)
 export function RemoveCursorPointer(element)
 {
     element.style.cursor = "default";
+}
+
+export function ChangeImage(element, newImagePath)
+{
+    element.src = newImagePath;
 }
