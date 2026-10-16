@@ -17,6 +17,7 @@ let multithreadingDiv;
 let networkDiv;
 let aiDiv;
 let toolingDiv;
+let wipDiv;
 let myCodeDiv;
 let aboutMeDiv;
 
@@ -40,6 +41,7 @@ function RetrieveElements()
     networkDiv = document.getElementById("network");
     aiDiv = document.getElementById("ai");
     toolingDiv = document.getElementById("tooling");
+    wipDiv = document.getElementById("wip");
     myCodeDiv = document.getElementById("my-code");
     aboutMeDiv = document.getElementById("about-me");
 }
@@ -94,6 +96,10 @@ function TopbarClickHandler()
         ScrollToElement(toolingDiv);
     });
 
+    document.querySelector("#wip-index").addEventListener("click", (event) => {
+        ScrollToElement(wipDiv);
+    });
+
     document.querySelector("#my-code-index").addEventListener("click", (event) => {
         ScrollToElement(myCodeDiv);
     });
@@ -138,6 +144,11 @@ function HamburgerMenuClickHandler()
 
     document.querySelector("#tooling-hamburger-index").addEventListener("click", (event) => {
         ScrollToElement(toolingDiv);
+        CloseHamburgerMenu();
+    });
+
+    document.querySelector("#wip-hamburger-index").addEventListener("click", (event) => {
+        ScrollToElement(wipDiv);
         CloseHamburgerMenu();
     });
 

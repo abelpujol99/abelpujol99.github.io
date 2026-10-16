@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Abel Pujol - Portfolio</title>
+        <link rel="stylesheet" href="../styles/reset.css">
+        <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+        <div class="page-title">
+            <p class="header-1 white bold">Devices Profiles GUI - WIP</p>
+        </div>
+        <div class="content">
+            <div class="content-grid">
+                <p class="text white text-block">
+                    Pounce Palace is a first-person platformer game where the player has to acquire movement skills and learn how to use them in order to defeat the enemies in their path to complete the level.
+                    <br>
+                    This game was developed in Unity.
+                </p>
+                <video class="clickable horizontal-medium-media" autoplay muted loop>
+                    <source src="../resources/videos/pounce-palace/trailer.mp4">
+                </video>
+            </div>
+            <div>
+                <p class="text white text-block">
+                    Due to time constraints, Pounce Palace could only have 2 types of enemies implemented.
+                    But, throughout the game, the players can see variations of the same enemies.
+                    This was achieved by developing a tool, allowing the enemy designers to iterate without having to communicate with the AI developer, which in that case was me.
+                </p>
+            </div>
+            <div class="content-block">
+                <figure class="solid-border thin-border border-padding">
+                    <img class="clickable vertical-small-media" src="../resources/images/pounce-palace/triface.png" alt="">
+                    <figcaption class="text white">Triface</figcaption>
+                </figure>
+                <figure class="solid-border thin-border border-padding">
+                    <img class="clickable horizontal-medium-media" src="../resources/images/pounce-palace/longarms.png" alt="">
+                    <figcaption class="text white">Long Arms</figcaption>
+                </figure>
+            </div>
+            <div class="page-title">
+                <p class="header-2 white bold">Implementation</p>
+            </div>
+            <div class="content-grid">
+                <div>
+                    <p class="text white text-block">
+                        In order to allow fast iterations, some data assets for enemy type and ability type were defined.
+                        To maximize enemy designers' performance while iterating, each data asset has their own Custom Editor.
+                        These editors were implemented to add:
+                    </p>
+                    <ul class="text white text-block">
+                        <li>Text Hightlights</li>
+                        <li>Indents</li>
+                        <li>Folders</li>
+                        <li>Conditions</li>
+                    </ul>
+                    <p class="text white text-block">
+                        The conditions had great importance, hiding or showing fields in cascade depending on the entries' values. 
+                        Due to this, these data assets were structured to be fulfilled from the top to the bottom.
+                        <br>
+                        <br>
+                        With this tool, and the systems that back it, we created variations of the same enemy type.
+                    </p>                                                   
+                </div>
+                <img class="clickable vertical-medium-media" src="../resources/images/pounce-palace/ability-example.png" alt="">
+            </div>
+            <div class="page-title">
+                <p class="header-2 white bold">Demonstration</p>
+            </div>
+            <div class="content-block">
+                <figure class="solid-border thin-border border-padding">
+                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-target.png" alt="">
+                    <figcaption class="text white">Ability Target</figcaption>
+                </figure>
+                <figure class="solid-border thin-border border-padding">
+                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-cast.png" alt="">
+                    <figcaption class="text white">Ability Cast</figcaption>
+                </figure>
+                <figure class="solid-border thin-border border-padding">
+                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-projectile.png" alt="">
+                    <figcaption class="text white">Ability Projectile</figcaption>
+                </figure>
+                <figure class="solid-border thin-border border-padding">
+                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-aoe.png" alt="">
+                    <figcaption class="text white">Ability AoE</figcaption>
+                </figure>
+                <figure class="solid-border thin-border border-padding">
+                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-movement.png" alt="">
+                    <figcaption class="text white">Ability Movement</figcaption>
+                </figure>
+                <figure class="solid-border thin-border border-padding">
+                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-behavior.png" alt="">
+                    <figcaption class="text white">Ability Behavior</figcaption>
+                </figure>
+            </div>
+            <div class="content-block">
+                <figure class="solid-border thin-border border-padding">
+                    <img class="clickable horizontal-medium-media" src="../resources/videos/pounce-palace/throw-rock-ability.gif" alt="">
+                    <figcaption class="text white">Throw Rock Ability</figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="back-to-home">
+            <p class="back-button text white round-border">Back to home</p>
+        </div>
+        <script type="module" src="../src/sub-pages-script.js"></script>
+        <noscript>Sorry, your browser doesn't support Javascript</noscript>
+    </body>
+</html>
