@@ -12,95 +12,103 @@
             <p class="header-1 white bold">Devices Profiles GUI - WIP</p>
         </div>
         <div class="content">
-            <div class="content-grid">
+            <div>
                 <p class="text white text-block">
-                    Pounce Palace is a first-person platformer game where the player has to acquire movement skills and learn how to use them in order to defeat the enemies in their path to complete the level.
+                    Devices Profiles GUI is a desktop application. Its purpose is to remap any button's input from any peripheral that the user desires.
                     <br>
-                    This game was developed in Unity.
+                    <br>
+                    This application is being developed in C++, with the library ImGui and GLFW, and works only on Linux.
                 </p>
-                <video class="clickable horizontal-medium-media" autoplay muted loop>
-                    <source src="../resources/videos/pounce-palace/trailer.mp4">
-                </video>
+            </div>
+            <div class="page-title">
+                <p class="header-2 white bold">Backend</p>
             </div>
             <div>
                 <p class="text white text-block">
-                    Due to time constraints, Pounce Palace could only have 2 types of enemies implemented.
-                    But, throughout the game, the players can see variations of the same enemies.
-                    This was achieved by developing a tool, allowing the enemy designers to iterate without having to communicate with the AI developer, which in that case was me.
+                    My design consists of giving the user the ability to activate 3 types of commands that they choose themselves when interacting with the button. Those commands are: emit input events, switch to a sub profile and shutting down the service itself.
+                    <br>
+                    <br>
+                    Those commands can be triggered on the 3 states of a button: press, hold and release.
+                    <br>
+                    When pressed or released the choosed command will be triggered just once, but when holding that command will be triggered indefinetly inside a thread until the button is released. 
+                    To avoid overwhelming the thread, the re-trigger time has a cooldown that has to be set by the user with a minimum value.
+                    <br>
+                    <br>
+                    Create threads are expensive, so, theres only 1 thread that manages the holding commands and is created at the start of the application.
+                    At this moment, when a hold command tries to be executed when another is already running the older one will be stopped and let the new one to start.
                 </p>
             </div>
-            <div class="content-block">
-                <figure class="solid-border thin-border border-padding">
-                    <img class="clickable vertical-small-media" src="../resources/images/pounce-palace/triface.png" alt="">
-                    <figcaption class="text white">Triface</figcaption>
-                </figure>
-                <figure class="solid-border thin-border border-padding">
-                    <img class="clickable horizontal-medium-media" src="../resources/images/pounce-palace/longarms.png" alt="">
-                    <figcaption class="text white">Long Arms</figcaption>
-                </figure>
+            <div class="page-title">
+                <p class="header-4 white bold">EmitInputCommand</p>
+            </div>
+            <div>
+                <p class="text white text-block">
+                    This command allows the user to chain as many button inputs as they want, these inputs could be from mouse, keyboard or controller.
+                </p>
             </div>
             <div class="page-title">
-                <p class="header-2 white bold">Implementation</p>
+                <p class="header-4 white bold">SwitchSubProfileCommand</p>
             </div>
-            <div class="content-grid">
-                <div>
-                    <p class="text white text-block">
-                        In order to allow fast iterations, some data assets for enemy type and ability type were defined.
-                        To maximize enemy designers' performance while iterating, each data asset has their own Custom Editor.
-                        These editors were implemented to add:
-                    </p>
-                    <ul class="text white text-block">
-                        <li>Text Hightlights</li>
-                        <li>Indents</li>
-                        <li>Folders</li>
-                        <li>Conditions</li>
-                    </ul>
-                    <p class="text white text-block">
-                        The conditions had great importance, hiding or showing fields in cascade depending on the entries' values. 
-                        Due to this, these data assets were structured to be fulfilled from the top to the bottom.
-                        <br>
-                        <br>
-                        With this tool, and the systems that back it, we created variations of the same enemy type.
-                    </p>                                                   
-                </div>
-                <img class="clickable vertical-medium-media" src="../resources/images/pounce-palace/ability-example.png" alt="">
+            <div>
+                <p class="text white text-block">
+                    In my design each peripheral can have more than one remapping profile, each profile can store a large amount of sub-profiles, and each sub-profile stores the inputs' remapping.
+                    <br>
+                    <br>
+                    This command allows switching between sub profiles. When the button is pressed the main sub-profile would be changed for the desired one, and viceversa when released.
+                </p>
             </div>
             <div class="page-title">
-                <p class="header-2 white bold">Demonstration</p>
+                <p class="header-4 white bold">ShutdownApplicationCommand</p>
             </div>
-            <div class="content-block">
-                <figure class="solid-border thin-border border-padding">
-                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-target.png" alt="">
-                    <figcaption class="text white">Ability Target</figcaption>
-                </figure>
-                <figure class="solid-border thin-border border-padding">
-                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-cast.png" alt="">
-                    <figcaption class="text white">Ability Cast</figcaption>
-                </figure>
-                <figure class="solid-border thin-border border-padding">
-                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-projectile.png" alt="">
-                    <figcaption class="text white">Ability Projectile</figcaption>
-                </figure>
-                <figure class="solid-border thin-border border-padding">
-                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-aoe.png" alt="">
-                    <figcaption class="text white">Ability AoE</figcaption>
-                </figure>
-                <figure class="solid-border thin-border border-padding">
-                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-movement.png" alt="">
-                    <figcaption class="text white">Ability Movement</figcaption>
-                </figure>
-                <figure class="solid-border thin-border border-padding">
-                    <img class="clickable horizontal-small-media" src="../resources/images/pounce-palace/ability-behavior.png" alt="">
-                    <figcaption class="text white">Ability Behavior</figcaption>
-                </figure>
+            <div>
+                <p class="text white text-block">
+                    This command will shutdown the backend service, but not the application's frontend.
+                </p>
             </div>
-            <div class="content-block">
-                <figure class="solid-border thin-border border-padding">
-                    <img class="clickable horizontal-medium-media" src="../resources/videos/pounce-palace/throw-rock-ability.gif" alt="">
-                    <figcaption class="text white">Throw Rock Ability</figcaption>
-                </figure>
+            <div class="page-title">
+                <p class="header-2 white bold">Frontend</p>
             </div>
-        </div>
+            <div>
+                <p class="text white text-block">
+                    This part of the application would manage the save files that contain the data and an interface to ease the remapping configuration.
+                </p>
+            </div>
+            <div class="page-title">
+                <p class="header-4 white bold">ImGui</p>
+            </div>
+            <div>
+                <p class="text white text-block">
+                    I decided to use ImGui because I seen good reviews about it, due to their flexibility, modularity and compatibility, and I thought it could fit the application's needs.
+                    <br>
+                    <br>
+                    The usage I'm giving to this library is to display my own UI elements. Those elements where developed during this application through reverse-engeering of the most known videogame engines like Unity and Unreal.
+                </p>
+            </div>
+            <div class="page-title">
+                <p class="header-4 white bold">Devices</p>
+            </div>
+            <div>
+                <p class="text white text-block">
+                    In order to create the peripherals' profiles, the application needs to know the devices. To achieve this the application reads the devices that are connected to the system and filters for those which are compatible for the application's purpose.
+                </p>
+            </div>
+            <div class="page-title">
+                <p class="header-2 white bold">Why Linux?</p>
+            </div>
+            <div>
+                <p class="text white text-block">
+                    When I used Windows, I had a software that remapped my mouse' inputs, but when I switched to Linux I couldn't find any software that satisfied me, so, I decided to develop my own one which would cover everything I might want.
+                </p>
+            </div>
+            <div class="link-list">
+                <div class="icon-link-div">
+                    <span>
+                        <img class="icon" id="github-logo">
+                    </span>
+                    <a class="link text" href="https://github.com/abelpujol99/MouseProfilesGUI">MouseProfilesGUI - Github</a>
+                </div>                    
+            </div>
+        </div>        
         <div class="back-to-home">
             <p class="back-button text white round-border">Back to home</p>
         </div>

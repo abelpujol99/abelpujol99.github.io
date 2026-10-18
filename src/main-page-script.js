@@ -255,33 +255,6 @@ function CardBannerHoverHandler()
     }));
 }
 
-function CardBannerLinks()
-{
-    document.querySelector("#farlands-tiny-harvest").addEventListener("click", (event) => {
-        window.location.href = "pages/farlands:-tiny-harvest.html";
-    });
-
-    document.querySelector("#pathfinding-pounce-palace").addEventListener("click", (event) => {
-        window.location.href = "pages/pathfinding-pounce-palace.html";
-    });
-
-    document.querySelector("#online-chess").addEventListener("click", (event) => {
-        window.location.href = "pages/online-chess.html";
-    });
-
-    document.querySelector("#enemies-pounce-palace").addEventListener("click", (event) => {
-        window.location.href = "pages/enemies-pounce-palace.html";
-    });
-
-    document.querySelector("#ability-maker-pounce-palace").addEventListener("click", (event) => {
-        window.location.href = "pages/ability-maker-pounce-palace.html";
-    });
-
-    document.querySelector("#code-patterns").addEventListener("click", (event) => {
-        window.location.href = "pages/patterns.html";
-    });
-}
-
 function OnDocumentLoaded()
 {
     RetrieveElements();
@@ -295,8 +268,6 @@ function OnDocumentLoaded()
     AttachClickHandler();
 
     CardBannerHoverHandler();
-
-    CardBannerLinks();
 }
 
 document.addEventListener('DOMContentLoaded', OnDocumentLoaded);
