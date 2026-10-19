@@ -25,17 +25,17 @@
             </div>
             <div>
                 <p class="text white text-block">
-                    My design consists of giving the user the ability to activate 3 types of commands that they choose themselves when interacting with the button. Those commands are: emit input events, switch to a sub profile and shutting down the service itself.
+                    My design consists of giving the user the ability to activate 3 types of commands that they choose themselves when interacting with the button. Those commands are: emit input events, switch to a sub-profile and shut down the service itself.
                     <br>
                     <br>
-                    Those commands can be triggered on the 3 states of a button: press, hold and release.
+                    Those commands can be triggered on the 3 states of a button: press, hold, and release.
                     <br>
-                    When pressed or released the choosed command will be triggered just once, but when holding that command will be triggered indefinetly inside a thread until the button is released. 
+                    When pressed or released, the chosen command will be triggered just once, but when holding that command will be triggered indefinitely inside a thread until the button is released. 
                     To avoid overwhelming the thread, the re-trigger time has a cooldown that has to be set by the user with a minimum value.
                     <br>
                     <br>
-                    Create threads are expensive, so, theres only 1 thread that manages the holding commands and is created at the start of the application.
-                    At this moment, when a hold command tries to be executed when another is already running the older one will be stopped and let the new one to start.
+                    Creating threads is expensive, so, there's only 1 thread that manages the holding commands and is created at the start of the application.
+                    At this moment, when a hold command tries to be executed when another is already running, the older one will be stopped and let the new one start.
                 </p>
             </div>
             <div class="page-title">
@@ -43,7 +43,7 @@
             </div>
             <div>
                 <p class="text white text-block">
-                    This command allows the user to chain as many button inputs as they want, these inputs could be from mouse, keyboard or controller.
+                    This command allows the user to chain as many button inputs as they want, these inputs could be from the mouse, keyboard, or controller.
                 </p>
             </div>
             <div class="page-title">
@@ -54,7 +54,7 @@
                     In my design each peripheral can have more than one remapping profile, each profile can store a large amount of sub-profiles, and each sub-profile stores the inputs' remapping.
                     <br>
                     <br>
-                    This command allows switching between sub profiles. When the button is pressed the main sub-profile would be changed for the desired one, and viceversa when released.
+                    This command allows switching between sub profiles. When the button is pressed, the main sub-profile would be changed for the desired one, and vice versa when released.
                 </p>
             </div>
             <div class="page-title">
@@ -78,10 +78,10 @@
             </div>
             <div>
                 <p class="text white text-block">
-                    I decided to use ImGui because I seen good reviews about it, due to their flexibility, modularity and compatibility, and I thought it could fit the application's needs.
+                    I decided to use ImGui because I saw good reviews about it due to its flexibility, modularity, and compatibility, and I thought it could fit the application's needs.
                     <br>
                     <br>
-                    The usage I'm giving to this library is to display my own UI elements. Those elements where developed during this application through reverse-engeering of the most known videogame engines like Unity and Unreal.
+                    The usage I'm giving to this library is to display my own UI elements. Those elements were developed during this application through reverse-engineering of the most known videogame engines like Unity and Unreal.
                 </p>
             </div>
             <div class="page-title">
@@ -89,7 +89,7 @@
             </div>
             <div>
                 <p class="text white text-block">
-                    In order to create the peripherals' profiles, the application needs to know the devices. To achieve this the application reads the devices that are connected to the system and filters for those which are compatible for the application's purpose.
+                    In order to create the peripherals' profiles, the application needs to know the devices. To achieve this, the application reads the devices that are connected to the system and filters for those that are compatible with the application's purpose.
                 </p>
             </div>
             <div class="page-title">
@@ -97,7 +97,7 @@
             </div>
             <div>
                 <p class="text white text-block">
-                    When I used Windows, I had a software that remapped my mouse' inputs, but when I switched to Linux I couldn't find any software that satisfied me, so, I decided to develop my own one which would cover everything I might want.
+                    When I used Windows, I downloaded an application that remapped my mouse's inputs, but when I switched to Linux, I couldn't find any software that satisfied me, so I decided to develop my own one that would cover everything I might want.
                 </p>
             </div>
             <div class="link-list">
